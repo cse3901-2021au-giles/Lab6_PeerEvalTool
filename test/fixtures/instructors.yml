@@ -3,11 +3,9 @@
 one:
   name: MyString
   email: MyString
-  password: MyString
-  classId: MyString
+  course: one
 
 two:
   name: MyString
   email: MyString
-  password: MyString
-  classId: MyString
+  course: two

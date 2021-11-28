@@ -3,10 +3,9 @@ class CreateStudents < ActiveRecord::Migration[6.0]
     create_table :students do |t|
       t.string :name
       t.string :email
-      t.string :password
-      t.string :teamId
-      t.string :instructorId
-      t.string :classId
+      t.references :team, null: false, foreign_key: true
+      t.references :instructor, null: false, foreign_key: true
+      t.references :course, null: false, foreign_key: true
 
       t.timestamps
     end

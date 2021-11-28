@@ -3,15 +3,13 @@
 one:
   name: MyString
   email: MyString
-  password: MyString
-  teamId: MyString
-  instructorId: MyString
-  classId: MyString
+  team: one
+  instructor: one
+  course: one
 
 two:
   name: MyString
   email: MyString
-  password: MyString
-  teamId: MyString
-  instructorId: MyString
-  classId: MyString
+  team: two
+  instructor: two
+  course: two

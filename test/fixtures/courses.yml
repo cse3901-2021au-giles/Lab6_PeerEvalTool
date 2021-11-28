@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  instructorId: MyString
+  instructor: one
 
 two:
   name: MyString
-  instructorId: MyString
+  instructor: two

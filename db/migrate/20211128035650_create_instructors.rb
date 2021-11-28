@@ -3,8 +3,7 @@ class CreateInstructors < ActiveRecord::Migration[6.0]
     create_table :instructors do |t|
       t.string :name
       t.string :email
-      t.string :password
-      t.string :classId
+      t.references :course, null: false, foreign_key: true
 
       t.timestamps
     end
