@@ -1,14 +1,14 @@
-<h1>Students#new</h1>
+<h1>Instructors#new</h1>
 
-<h3>Create a Student</h3>
-<%= form_with model: @student do |form| %>
+<h3>Create an Instructor</h3>
+<%= form_with model: @instructor do |form| %>
   <%= form.text_field :name, placeholder: "name" %>
   <%= form.text_field :email, placeholder: "email" %>
   <%= form.text_field :password, placeholder: "password" %>
   <%= form.submit %>
 <% end %>
 
-<!-- <%= form_for @student do |form| %>
+<!-- <%= form_for @instructor do |form| %>
   <%= form.text_field :name, placeholder: 'name' %>
   <%= form.text_field :email, placeholder: 'email' %>
   <%= form.text_field :password, placeholder: 'password' %>
