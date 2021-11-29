@@ -3,12 +3,12 @@
 <h3>Create an Evaluation</h3>
 <%= form_with model: @eval do |form| %>
   <%= form.text_field :comments, placeholder: "comments" %>
-  <%= form.text_field :ratings, placeholder: "ratings" %>
+  <%= form.text_field :rating, placeholder: "rating" %>
   <%= form.submit %>
 <% end %>
 
 <!-- <%= form_for @eval do |form| %>
   <%= form.text_field :comments, placeholder: 'comments' %>
-  <%= form.text_field :ratings, placeholder: 'ratings' %>
+  <%= form.text_field :rating, placeholder: 'rating' %>
   <%= form.submit %>
 <% end %> -->

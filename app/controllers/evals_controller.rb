@@ -38,7 +38,7 @@ class EvalsController < ApplicationController
       private
       
       def eval_params
-        params.require(:eval).permit(:comments, :ratings)
+        params.require(:eval).permit(:comments, :rating)
       end
       
       def current_eval
