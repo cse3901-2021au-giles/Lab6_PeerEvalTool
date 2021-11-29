@@ -1,0 +1,14 @@
+<h1>Evaluations#new</h1>
+
+<h3>Create an Evaluation</h3>
+<%= form_with model: @eval do |form| %>
+  <%= form.text_field :comments, placeholder: "comments" %>
+  <%= form.text_field :ratings, placeholder: "ratings" %>
+  <%= form.submit %>
+<% end %>
+
+<!-- <%= form_for @eval do |form| %>
+  <%= form.text_field :comments, placeholder: 'comments' %>
+  <%= form.text_field :ratings, placeholder: 'ratings' %>
+  <%= form.submit %>
+<% end %> -->

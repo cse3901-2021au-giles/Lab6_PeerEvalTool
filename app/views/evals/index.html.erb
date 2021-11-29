@@ -1,0 +1,12 @@
+<% provide(:title, 'All Evaluations') %>
+<h1>All Evaluations</h1>
+
+<table>
+  <% @evals.each do |eval| %>
+    <tr>
+      <td><%= link_to eval.name, eval_path(eval) %></td>
+      <td><%= button_to 'Edit', edit_eval_path(eval), method: 'get'%></td>
+      <td><%= button_to 'Remove', eval_path(eval), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</table>
+<%= link_to "Add a New eval", new_eval_path %>
