@@ -26,7 +26,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   def update
     @student.update(student_params)
     
-    redirect_to student_path(@student)
+    redirect_to students_path(@student)
   end
   
   def destroy
