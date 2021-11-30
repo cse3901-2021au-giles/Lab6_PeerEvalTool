@@ -3,11 +3,7 @@
 one:
   name: MyString
   email: MyString
-  password: MyString
-  accountType: MyString
 
 two:
   name: MyString
   email: MyString
-  password: MyString
-  accountType: MyString

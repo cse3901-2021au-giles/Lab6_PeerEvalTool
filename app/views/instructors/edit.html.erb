@@ -1,9 +1,0 @@
-<h1>Instructors#edit</h1>
-
-<h3>Update Instructor Details</h3>
-<%= form_with model: @instructor do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :email, placeholder: "email" %>
-  <%= form.text_field :password, placeholder: "password" %>
-  <%= form.submit %>
-<% end %>

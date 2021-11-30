@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @eval = current_student.evals.build if logged_in?
+    @eval = current_user.evals.build if logged_in?
   end
 
   def help

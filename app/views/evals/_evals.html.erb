@@ -1,6 +1,6 @@
 <li id="eval-<%= eval.id %>">
-  <%= link_to gravatar_for(eval.student, size: 50), eval.student %>
-  <span class="student"><%= link_to eval.student.name, eval.student %></span>
+  <%= link_to gravatar_for(eval.user, size: 50), eval.user %>
+  <span class="user"><%= link_to eval.user.name, eval.user %></span>
   <span class="comments"><%= eval.comments %></span>
   <span class="rating"><%= eval.rating %></span>
   <span class="timestamp">
