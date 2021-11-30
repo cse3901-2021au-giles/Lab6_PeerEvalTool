@@ -6,9 +6,9 @@ class Student < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
-  belongs_to :team
-  belongs_to :instructor
-  belongs_to :course
-  has_many :author_evals, class_name: 'Eval', foreign_key: 'author_id'
-  has_many :recipient_evals, class_name: 'Eval', foreign_key: 'recipient_id'
+  #belongs_to :team
+  #belongs_to :instructor
+  #belongs_to :course
+  #has_many :author_evals, class_name: 'Eval', foreign_key: 'author_id'
+  #has_many :recipient_evals, class_name: 'Eval', foreign_key: 'recipient_id'
 end
