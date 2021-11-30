@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :students
   resources :instructors
-  resources :evals
+  resources :evals,       only: [:create, :destroy]
   resources :teams
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

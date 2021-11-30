@@ -1,3 +1,18 @@
-<h2>HOME PAGE</h2>
-<%= link_to "New Students Account", students_path, class: "btn btn-lg btn-primary" %>
-<%= link_to "New Instructors Account", instructors_path, class: "btn btn-lg btn-primary" %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="student_info">
+        <%= render 'shared/student_info' %>
+      </section>
+      <section class="evals_form">
+        <%= render 'shared/evals_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+
+    <%= link_to "Student Signup", students_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Instructor Signup", instructors_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

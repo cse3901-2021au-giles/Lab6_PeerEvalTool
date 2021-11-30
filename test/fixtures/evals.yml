@@ -1,15 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author: one
-  recipient: one
-  comments: MyText
-  rating: 1
-  activity: one
+  comment: MyText
+  student: one
+  rating: MyString
 
 two:
-  author: two
-  recipient: two
-  comments: MyText
-  rating: 1
-  activity: two
+  comment: MyText
+  student: two
+  rating: MyString

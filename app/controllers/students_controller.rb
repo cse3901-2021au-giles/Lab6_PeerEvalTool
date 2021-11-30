@@ -7,6 +7,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
 
   def show
     @student = Student.find(params[:id])
+    @evals = @student.evals.paginate(page: params[:page])
   end
 
   def new
@@ -52,4 +53,10 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   def current_student
     @student = Student.find(params[:id])
   end
+
+  def correct_student
+    @student = Student.find(params[:id])
+    redirect_to(root_url) unless current_student?(@student)
+  end
+
 end

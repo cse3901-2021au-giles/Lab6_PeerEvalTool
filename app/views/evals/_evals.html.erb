@@ -1,0 +1,9 @@
+<li id="eval-<%= eval.id %>">
+  <%= link_to gravatar_for(eval.student, size: 50), eval.student %>
+  <span class="student"><%= link_to eval.student.name, eval.student %></span>
+  <span class="comments"><%= eval.comments %></span>
+  <span class="rating"><%= eval.rating %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(eval.created_at) %> ago.
+  </span>
+</li>
