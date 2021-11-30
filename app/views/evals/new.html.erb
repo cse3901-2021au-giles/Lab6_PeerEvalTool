@@ -23,14 +23,10 @@
 <li>Does not assist teammates. Quits if the work becomes difficult.</li>
 </ul>
 
-<%= form_with model: @eval do |form| %>
-  <%= form.text_field :comments, placeholder: "comments" %>
-  <%= form.text_field :rating, placeholder: "rating" %>
-  <%= form.submit %>
-<% end %>
+<%= f.label :rating %>
+<%= f.rating_field :rating, class: 'form-control' %>
 
-<!-- <%= form_for @eval do |form| %>
-  <%= form.text_field :comments, placeholder: 'additional comments' %>
-  <%= form.text_field :rating, placeholder: 'rating' %>
-  <%= form.submit %>
-<% end %> -->
+<%= f.label :comments %> 
+<%= f.comments_field :comments, class: 'form-control' %>
+
+<%= f.submit "Submit Comments", class: "btn btn-primary" %>
