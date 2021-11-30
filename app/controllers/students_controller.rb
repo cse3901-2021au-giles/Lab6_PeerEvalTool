@@ -14,7 +14,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   end
   
   def create
-    @student = Student.new(params[:student])
+    @student = Student.new(student_params)
 
     if @student.save
       redirect_to @student
