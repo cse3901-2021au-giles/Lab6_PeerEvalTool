@@ -19,7 +19,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
     if @student.save
       log_in @student
       redirect_to @student
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome!"
     else
       render 'new'
     end
