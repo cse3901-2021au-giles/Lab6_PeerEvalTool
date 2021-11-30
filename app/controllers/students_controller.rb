@@ -14,7 +14,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   end
   
   def create
-    student = Student.create(student_params)
+    @student = Student.new(student_params)
     
     redirect_to students_path
   end
@@ -25,12 +25,14 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   
   def update
     @student.update(student_params)
+    flash[:success] = "Profile Updated"
     
     redirect_to students_path(@student)
   end
   
   def destroy
     @student.destroy
+    flash[:success] = "User Deleted"
 
     redirect_to students_path
   end
