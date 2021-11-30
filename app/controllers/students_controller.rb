@@ -6,7 +6,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-
+    @student = Student.find(params[:id])
   end
 
   def new
@@ -14,9 +14,14 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   end
   
   def create
-    @student = Student.new(student_params)
-    
-    redirect_to students_path
+    @student = Student.new(params[:student])
+
+    if @student.save
+      redirect_to @student
+      flash[:success] = "Welcome to the Sample App!"
+    else
+      render 'new'
+    end
   end
 
   def edit

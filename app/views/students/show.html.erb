@@ -1,5 +1,8 @@
 <h1>Students#show</h1>
 @student = Student.find(params[:id])
 
-<h1><%= @student.name %></h1>
-<h4>"<%= @student.email %>"</h4>
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>

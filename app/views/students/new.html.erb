@@ -1,18 +1,24 @@
-<h1>Students#new</h1>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
 
-<h3>Create a Student</h3>
-<%= form_with model: @student do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :email, placeholder: "email" %>
-  <%= form.text_field :password, placeholder: "password" %>
-  <%= form.text_field :accountType, placeholder: "accountType" %>
-  <%= form.submit %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @student, local: true) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-<!-- <%= form_for @student do |form| %>
-  <%= form.text_field :name, placeholder: 'name' %>
-  <%= form.text_field :email, placeholder: 'email' %>
-  <%= form.text_field :password, placeholder: "password" %>
-  <%= form.text_field :accountType, placeholder: "accountType" %>
-  <%= form.submit %>
-<% end %> -->
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :accountType, "Account Type" %>
+      <%= f.accountType_field :accountType, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
