@@ -3,13 +3,11 @@
 one:
   name: MyString
   email: MyString
-  team: one
-  instructor: one
-  course: one
+  password: MyString
+  accountType: MyString
 
 two:
   name: MyString
   email: MyString
-  team: two
-  instructor: two
-  course: two
+  password: MyString
+  accountType: MyString
