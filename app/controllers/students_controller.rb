@@ -40,7 +40,7 @@ before_action :current_student, only: [:show, :edit, :update, :destroy]
   private
   
   def student_params
-    params.require(:student).permit(:name, :email, :password)
+    params.require(:student).permit(:name, :email, :password, :accountType)
   end
   
   def current_student

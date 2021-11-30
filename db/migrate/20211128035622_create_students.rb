@@ -3,6 +3,8 @@ class CreateStudents < ActiveRecord::Migration[6.0]
     create_table :students do |t|
       t.string :name
       t.string :email
+      t.string :password
+      t.string :accountType
       
       t.references :team, null: false, foreign_key: true
       t.references :instructor, null: false, foreign_key: true
