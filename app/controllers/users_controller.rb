@@ -23,16 +23,31 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    flash[:success] = "Profile Updated"
+    #@user.update(user_params)
+    #flash[:success] = "Profile Updated"
     
-    redirect_to users_path(@user)
+    #redirect_to users_path(@user)
+    
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
+    
+    
   end
   
   def destroy
-    @user.destroy
-    flash[:success] = "User Deleted"
-
+    @user = User.find(params[:id])
+    if @user.present?
+      @user.destroy
+      flash[:success] = "User Deleted"
+    end  
     redirect_to users_path
   end
 
