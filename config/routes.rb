@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
   get    '/signup',  to: 'users#new'
+  get    '/edit',    to: 'users#edit'
   get    '/login',   to: 'sessions#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
