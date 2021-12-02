@@ -2,10 +2,10 @@
 
 one:
   comment: MyText
-  student: one
+#  student: one
   rating: MyString
 
 two:
   comment: MyText
-  student: two
+#  student: two
   rating: MyString

@@ -22,20 +22,19 @@ ActiveRecord::Schema.define(version: 2021_11_30_202323) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.integer "instructor_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["instructor_id"], name: "index_courses_on_instructor_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "evals", force: :cascade do |t|
     t.text "comment"
-    t.integer "student_id", null: false
+    t.integer "user_id", null: false
     t.string "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user_id\", \"created_at\"", name: "index_evals_on_user_id_and_created_at"
-    t.index ["student_id"], name: "index_evals_on_student_id"
+    t.index ["user_id"], name: "index_evals_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -56,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_202323) do
   end
 
   add_foreign_key "activities", "courses"
-  add_foreign_key "courses", "instructors"
-  add_foreign_key "evals", "students"
+  add_foreign_key "courses", "users"
+  add_foreign_key "evals", "users"
   add_foreign_key "teams", "courses"
 end
