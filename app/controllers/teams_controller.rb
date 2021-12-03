@@ -20,6 +20,10 @@ def create
     end
 end
 
+def edit
+  @team = Team.find(params[:id])
+end
+
 def update
     current_team.update(team_params)
     flash[:success] = "team Updated"

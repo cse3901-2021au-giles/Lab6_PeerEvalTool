@@ -6,6 +6,8 @@
   <% @teams.each do |team| %>
     <tr>
       <td><%= link_to team.name, team_path(team) %></td>
+      <td><%= link_to "Edit", edit_team_path(team)%></td>
+      <td><%= button_to 'Remove', team, { :onclick =>  "return confirm('Are you sure?')", method: :delete } %></td>
   <% end %>
 </table>
 
