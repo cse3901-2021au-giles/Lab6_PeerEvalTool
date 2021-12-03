@@ -1,4 +1,4 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to "view my profile", current_user %></span>
-<span><%= pluralize(current_user.evals.count, "evals") %></span>
+<%= link_to gravatar_for(current_student, size: 50), current_student %>
+<h1><%= current_student.name %></h1>
+<span><%= link_to "view my profile", current_student %></span>
+<span><%#COMMENTED OUT= pluralize(current_student.evals.count, "evals") %></span>

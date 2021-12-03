@@ -1,0 +1,9 @@
+<h1>Students#show</h1>
+
+<% provide(:title, @student.name) %>
+<h1>
+  <%= gravatar_for @student %>
+  <%= @student.name %>
+</h1>
+
+<%= link_to 'Back', students_path %>

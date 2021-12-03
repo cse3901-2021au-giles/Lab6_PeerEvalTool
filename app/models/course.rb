@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-  belongs_to :user #instructor
-  has_many :user #students
-  has_many :activities
-  # has_one :instructor
+  #belongs_to :instructor
+  #has_many :students
+  #has_many :activities
+  #has_one :instructor
 end

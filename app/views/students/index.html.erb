@@ -1,0 +1,14 @@
+<% provide(:title, 'All Students') %>
+<h1>All Students</h1>
+
+<table>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= link_to student.name, student_path(student) %></td>
+      <td><%= button_to 'Edit', edit_student_path(student), method: :get%></td>
+      <td><%= button_to 'Remove', student, { :onclick =>  "return confirm('Are you sure?')", method: :delete } %></td>
+    </tr>
+  <% end %>
+
+</table>
+<%= link_to "Add a New student", new_student_path %>
