@@ -65,14 +65,4 @@ ActiveRecord::Schema.define(version: 2021_12_03_021721) do
     t.integer "student_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-    t.integer "team_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-  end
-
 end

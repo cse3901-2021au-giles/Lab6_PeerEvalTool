@@ -1,0 +1,9 @@
+<h1>Instructor Account</h1>
+
+<% provide(:title, @instructor.name) %>
+<h1>
+  <%= gravatar_for @instructor %>
+  <%= @instructor.name %>
+</h1>
+
+<%= link_to 'Back', instructors_path %>

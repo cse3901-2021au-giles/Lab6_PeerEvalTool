@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
   def destroy
     if current_student.present?
       current_student.destroy
-      flash[:success] = "User Deleted"
+      flash[:success] = "Student Deleted"
     end  
     redirect_to students_path
   end
