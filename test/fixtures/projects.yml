@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-#  course: one
+  description: MyText
 
 two:
   name: MyString
-#  course: two
+  description: MyText

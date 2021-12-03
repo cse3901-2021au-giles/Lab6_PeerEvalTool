@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_152038) do
+ActiveRecord::Schema.define(version: 2021_12_03_021721) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -39,12 +39,22 @@ ActiveRecord::Schema.define(version: 2021_12_02_152038) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id"
+    t.integer "team_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
@@ -52,6 +62,17 @@ ActiveRecord::Schema.define(version: 2021_12_02_152038) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.integer "team_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

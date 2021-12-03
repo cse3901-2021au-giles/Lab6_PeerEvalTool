@@ -4,6 +4,8 @@ class Student < ApplicationRecord
   #belongs_to :team
   #belongs_to :instructor
   #belongs_to :course
+  has_many :projects
+  has_many :teams
     
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
