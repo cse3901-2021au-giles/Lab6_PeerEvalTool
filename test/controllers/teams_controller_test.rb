@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class TeamsControllerTest < ActionDispatch::IntegrationTest
-=begin
-  test "should get index" do
-    get teams_index_url
+  test "should get teams index" do
+    get teams_url
     assert_response :success
   end
-=end
 end

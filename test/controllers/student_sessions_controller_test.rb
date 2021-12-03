@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-=begin
-  test "should get new" do
-    get sessions_new_url
+  test "should get student login" do
+    get student_login_url
     assert_response :success
   end
-=end
 end

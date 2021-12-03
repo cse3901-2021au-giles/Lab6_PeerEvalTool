@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
   get    '/student_signup',  to: 'students#new'
-  get    '/students/edit',    to: 'students#edit'
+  get    '/student_edit',    to: 'students#edit'
   
   get    '/student_login',   to: 'student_sessions#new'
   get    '/student_login',   to: 'student_sessions#new'
   post   '/student_login',   to: 'student_sessions#create'
   delete '/student_logout',  to: 'student_sessions#destroy'
   
-  get    '/instructors/edit'
+  get    '/instructor_edit',     to: 'instructors#edit'
   get    '/instructor_signup',   to: 'instructors#new'
   
   get    '/instructor_login',   to: 'instructor_sessions#new'
