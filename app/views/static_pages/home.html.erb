@@ -11,7 +11,8 @@
   </div>
 <% else %>
   <div class="center jumbotron">
-
+  <%= link_to "Students", students_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Teams", teams_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
