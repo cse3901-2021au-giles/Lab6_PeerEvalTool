@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_12_03_021721) do
 
-  create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -52,9 +46,11 @@ ActiveRecord::Schema.define(version: 2021_12_03_021721) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "team_id"
+    t.index ["course_id"], name: "index_students_on_course_id"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
@@ -65,4 +61,5 @@ ActiveRecord::Schema.define(version: 2021_12_03_021721) do
     t.integer "student_id"
   end
 
+  add_foreign_key "students", "courses"
 end
