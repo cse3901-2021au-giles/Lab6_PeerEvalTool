@@ -5,7 +5,7 @@
   <%= @team.name %>
 </h1>
 <%= @team.students.each do |s|%>
-  <div><%=s.name %></div>
+  <div><%= "#{s.name}" %></div>
 <% end %>
 
 <%= link_to 'Back', teams_path %>
