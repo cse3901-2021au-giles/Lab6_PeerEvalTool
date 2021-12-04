@@ -1,0 +1,2 @@
+class StudentsTeam < ApplicationRecord
+end
