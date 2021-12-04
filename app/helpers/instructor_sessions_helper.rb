@@ -1,5 +1,5 @@
 module InstructorSessionsHelper
-  def log_in(instructor)
+  def instructor_log_in(instructor)
     session[:instructor_id] = instructor.id
   end
 
@@ -9,11 +9,11 @@ module InstructorSessionsHelper
     end
   end
 
-  def logged_in?
+  def instructor_logged_in?
     !current_instructor.nil?
   end
 
-  def log_out
+  def instructor_log_out
     session.delete(:instructor_id)
     @current_instructor = nil
   end

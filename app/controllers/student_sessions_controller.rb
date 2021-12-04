@@ -5,7 +5,7 @@ class StudentSessionsController < ApplicationController
   def create
     student = Student.find_by(email: params[:student_session][:email].downcase)
     if student && student.authenticate(params[:student_session][:password])
-      log_in student
+      student_log_in student
       redirect_to student
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -14,7 +14,7 @@ class StudentSessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    student_log_out
     redirect_to root_url
   end
 end

@@ -1,14 +1,19 @@
-<% if logged_in? %>
+<% if student_logged_in? %>
   <div class="row">
     <aside class="col-md-4">
       <section class="student_info">
         <%= render 'shared/student_info' %>
-      </section>
-      <section class="evals_form">
-        <%= render 'shared/evals_form' %>
-      </section>
     </aside>
   </div>
+
+  <% elsif instructor_logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="instructor_info">
+        <%= render 'shared/instructor_info' %>
+    </aside>
+  </div>
+
 <% else %>
   <div class="center jumbotron">
 

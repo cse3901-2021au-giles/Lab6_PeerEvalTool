@@ -1,5 +1,5 @@
 module StudentSessionsHelper
-  def log_in(student)
+  def student_log_in(student)
     session[:student_id] = student.id
   end
 
@@ -9,11 +9,11 @@ module StudentSessionsHelper
     end
   end
 
-  def logged_in?
+  def student_logged_in?
     !current_student.nil?
   end
 
-  def log_out
+  def student_log_out
     session.delete(:student_id)
     @current_student = nil
   end
