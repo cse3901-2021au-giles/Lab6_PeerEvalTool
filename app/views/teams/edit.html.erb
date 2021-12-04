@@ -1,7 +1,15 @@
 <h1> Edit <%= @team.name%> <h1>
 
-<%= form_with(model: @team, local: true) do |f|%>
-    <%= f.label :name%> <br />
-    <%= f.text_field :name%>
-    <%= f.submit "Update #{@team.name}"  %>
-<%end%>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div>
+            <%= form_with(model: @team, local: true) do |f|%>
+                    <%= f.label :name%> <br />
+                    <%= f.text_field :name, class: 'form-control'%>
+                    <%= f.submit "Update #{@team.name}",  class: "btn btn-primary" %>
+            <%end%>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>

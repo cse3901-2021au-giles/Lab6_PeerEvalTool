@@ -11,6 +11,11 @@ def new
     @team = Team.new
 end
 
+def add_student
+  team = Team.find(params[:id])
+  @team.students << Student.find(params[:student_email])
+end
+
 def create
     @team = Team.new(team_params)
     if @team.save
@@ -39,8 +44,10 @@ end
     redirect_to teams_path
   end
 
-  private
 
+  
+  private
+    
     def team_params
       params.require(:team).permit(:name)
     end
