@@ -1,0 +1,26 @@
+<h1>Students in <%= Team.find(params[:team_id]).name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Group</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |m| %>
+      <% if Team.find(params[:team_id]).id == m.team_id %>
+        <tr>
+          <td><%= Student.find(m.student_id).email %></td>
+          <td><%= Team.find(m.team_id).name %></td>
+          <td><%= link_to 'Remove Student', m, method: :delete, data: { confirm: 'Are you sure?'}, :class=> "action" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br><%= link_to 'Back to Teams', teams_path %>
+<br><%= link_to 'Back to Classes', courses_path %>

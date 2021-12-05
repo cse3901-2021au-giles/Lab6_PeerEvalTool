@@ -1,9 +1,28 @@
 <h1>Instructor Account</h1>
-
-<% provide(:title, @instructor.name) %>
 <h1>
   <%= gravatar_for @instructor %>
   <%= @instructor.name %>
 </h1>
 
 <%= link_to 'Back', instructors_path %>
+
+<% if @instructor.team_ids.length==0 %>
+<br><%= link_to 'New Course', new_course_path(:instructor_id => @instructor.id), :class => "new" %>
+
+<% else %>
+
+  <h2>Teams:</h2>
+  <% if @instructor.team_ids.length == 0 %>
+    <h2>There are currently no teams in this class</h2>
+  <% end %>
+
+  <table><tbody>
+  <% for i in 0...@instructor.team_ids.length %>
+    
+    <tr><td><h3><%= link_to Team.find(@instructor.team_ids[i]).name, teams_path(:team_id => @instructor.team_ids[i])  %>	</h3></td></tr>
+  <% end %>
+  </tbody></table>
+  <br><%= link_to 'New Team', new_team_path(:instructor_id => @instructor.id), :class => "new" %>
+  <br><%= link_to 'Go to Teams', teams_path %>
+  <br><%= link_to 'Go to Classes', courses_path, :class => "btn btn-default" %>
+<% end %>

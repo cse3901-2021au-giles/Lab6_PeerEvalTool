@@ -7,6 +7,9 @@
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.hidden_field :instructor_id, :value => current_instructor.id  %>
+      <%= f.hidden_field :course_id, :value => Course.find(params[:course_id]).id  %>
       
       <%= f.submit "Create Team", class: "btn btn-primary" %>
     <% end %>

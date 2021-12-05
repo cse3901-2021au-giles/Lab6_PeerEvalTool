@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
     def index
+      if !instructor_logged_in?
+        redirect_to students_path
+      end
         @projects = Project.all
     end
 
@@ -8,6 +11,9 @@ class ProjectsController < ApplicationController
     end
 
     def new
+      if !instructor_logged_in?
+        redirect_to students_path
+      end
         @project = Project.new
         #@teams = Team.where('id = ?', current_student.team_id)
     end
@@ -22,6 +28,9 @@ class ProjectsController < ApplicationController
     end
 
     def update
+      if !instructor_logged_in?
+        redirect_to students_path
+      end
         current_project.update(project_params)
         flash[:success] = "Project Updated"
     

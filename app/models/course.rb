@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
-  #belongs_to :instructor
-  #has_many :students
+  belongs_to :instructor
+  has_many :teams
   #has_many :activities
-  #has_one :instructor
+  
+  validates :name, presence: true, uniqueness: true
 end
