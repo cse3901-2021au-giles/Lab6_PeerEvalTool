@@ -4,7 +4,7 @@
 <h1>
   <%= @team.name %>
 </h1>
-<%= @team.students.each do |s|%>
+<% @team.students.each do |s|%>
   <div><%= "#{s.name}" %></div>
 <% end %>
 

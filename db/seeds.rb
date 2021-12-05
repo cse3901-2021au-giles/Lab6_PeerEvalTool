@@ -16,3 +16,8 @@ end
   password = 'qwerty'
   Instructor.create(name: name, email: email, password: password, password_confirmation: password)
 end
+
+10.times do |t|
+  name = "Team" + t.to_s
+  Team.create(name: name)
+end
