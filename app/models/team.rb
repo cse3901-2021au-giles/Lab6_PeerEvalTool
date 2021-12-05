@@ -1,7 +1,8 @@
 class Team < ApplicationRecord
   #belongs_to :course
   has_many :projects, dependent: :destroy
-  has_and_belongs_to_many :students
+  has_many :students_teams
+  has_many :students, :through => :memberships
   belongs_to :instructor
   belongs_to :course
 
