@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @memberships.each do |m| %>
+    <% @students_teams.each do |m| %>
       <% if Team.find(params[:team_id]).id == m.team_id %>
         <tr>
           <td><%= Student.find(m.student_id).email %></td>
