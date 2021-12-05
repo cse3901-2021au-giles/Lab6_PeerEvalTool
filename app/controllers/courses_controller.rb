@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    if !instructor_loggied_in?
+    if !instructor_logged_in?
       redirect_to students_path
     end
     @course = Course.find(params[:id])
