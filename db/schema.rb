@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 2021_12_05_150950) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "instructors_id"
-    t.index ["instructors_id"], name: "index_instructors_on_instructors_id"
   end
 
   create_table "projects", force: :cascade do |t|
