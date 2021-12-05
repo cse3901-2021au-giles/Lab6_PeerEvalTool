@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_12_03_021721) do
-=======
-ActiveRecord::Schema.define(version: 2021_12_04_195839) do
->>>>>>> Teams
+ActiveRecord::Schema.define(version: 2021_12_05_200825) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -37,6 +33,11 @@ ActiveRecord::Schema.define(version: 2021_12_04_195839) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -53,27 +54,15 @@ ActiveRecord::Schema.define(version: 2021_12_04_195839) do
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-    t.integer "team_id"
-=======
->>>>>>> Teams
     t.index ["course_id"], name: "index_students_on_course_id"
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
-  create_table "students_teams", id: false, force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "team_id"
-  end
-
-<<<<<<< HEAD
-=======
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
->>>>>>> Teams
   add_foreign_key "students", "courses"
 end

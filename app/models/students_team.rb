@@ -1,2 +1,0 @@
-class StudentsTeam < ApplicationRecord
-end
