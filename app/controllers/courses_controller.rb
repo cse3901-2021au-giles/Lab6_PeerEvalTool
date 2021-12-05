@@ -1,16 +1,25 @@
 class CoursesController < ApplicationController
   include InstructorSessionsHelper
-  before_action :current_student, only: [:show, :edit, :update, :destroy]
+  before_action :current_instructor, only: [:show, :edit, :update, :destroy]
   
   def index
+    if !instructor_logged_in?
+      redirect_to students_path
+    end
     @courses = Course.all
   end
 
   def show
+    if !instructor_loggied_in?
+      redirect_to students_path
+    end
     @course = Course.find(params[:id])
   end
 
   def new
+    if !instructor_logged_in?
+      redirect to students_path
+    end
     @course = Course.new
     #@instructor = current_instructor
   end
@@ -25,6 +34,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    if !instructor_logged_in?
+      redirect_to students_path
+    end
     @course = Course.find(params[:id])
   end
   
