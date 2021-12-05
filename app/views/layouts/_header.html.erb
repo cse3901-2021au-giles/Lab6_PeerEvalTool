@@ -12,12 +12,10 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-
       <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
           id="bs-example-navbar-collapse-1">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
-
         <% if student_logged_in? %>
           <li><%= link_to "Students", students_path %></li>
           <li class="dropdown">
@@ -45,7 +43,7 @@
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", instructor_logout_path, method: :delete %>
-            </li>
+              </li>
             </ul>
           </li>
 

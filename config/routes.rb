@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get    '/instructor_edit',     to: 'instructors#edit'
   get    '/instructor_signup',   to: 'instructors#new'
   
-  get    '/courses/edit',     to: 'courses#edit'
-  #get    '/courses/new',   to: 'courses#new'
-  
   get    '/instructor_login',   to: 'instructor_sessions#new'
   get    '/instructor_login',   to: 'instructor_sessions#new'
   post   '/instructor_login',   to: 'instructor_sessions#create'
@@ -23,7 +20,6 @@ Rails.application.routes.draw do
   resources :students
   resources :instructors
   resources :projects
-  resources :courses
 
   resources :teams do
     member do

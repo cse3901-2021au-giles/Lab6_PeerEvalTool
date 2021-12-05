@@ -1,27 +1,9 @@
-<% provide(:title, @student.name) %>
-<%= gravatar_for @student %>
-<h1> <%= @student.name %> </h1>
-<br>
-<% if !@student.teams.empty? %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Team</th>
-      </tr>
-    </thead>
-    <tbody>
-        <% @student.teams.each do |t|%>
-          <tr>
-            <td> Course Name Here </td>
-            <td><%= "#{t.name}" %></td>
-          </tr>
-        <% end %>
-    </tbody>
-  </table>
-<% end %>
-<br>
-<%#= @student.evals %>
+<h1>Student Account</h1>
 
+<% provide(:title, @student.name) %>
+<h1>
+  <%= gravatar_for @student %>
+  <%= @student.name %>
+</h1>
 
 <%= link_to 'Back', students_path %>

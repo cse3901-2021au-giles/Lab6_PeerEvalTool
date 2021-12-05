@@ -1,12 +1,8 @@
 class Student < ApplicationRecord
-  has_many :author_evals, class_name: 'Eval', foreign_key: 'author_id'
-  has_many :recipient_evals, class_name: 'Eval', foreign_key: 'recipient_id'
-  #belongs_to :instructor
-  #belongs_to :course
   has_many :projects
   has_many :memberships
   has_many :teams, through: :memberships
-    
+
   before_save { email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
