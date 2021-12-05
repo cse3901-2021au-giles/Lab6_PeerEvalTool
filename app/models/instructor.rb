@@ -1,6 +1,6 @@
 class Instructor < ApplicationRecord
   has_one :course
-  #has_many :students
+  has_many :teams
   
   
   before_save { email.downcase! }
