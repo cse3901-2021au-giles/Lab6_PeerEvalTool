@@ -11,12 +11,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
         <% @student.teams.each do |t|%>
-          <td> Course Name Here </td>
-          <td><%= "#{t.name}" %></td>
+          <tr>
+            <td> Course Name Here </td>
+            <td><%= "#{t.name}" %></td>
+          </tr>
         <% end %>
-      </tr>
     </tbody>
   </table>
 <% end %>

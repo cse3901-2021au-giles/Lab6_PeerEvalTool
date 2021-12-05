@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_195839) do
+ActiveRecord::Schema.define(version: 2021_12_05_033935) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "instructor_id", null: false
+    t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
   create_table "evals", force: :cascade do |t|
@@ -23,6 +25,10 @@ ActiveRecord::Schema.define(version: 2021_12_04_195839) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id", null: false
+    t.integer "recipient_id", null: false
+    t.index ["author_id"], name: "index_evals_on_author_id"
+    t.index ["recipient_id"], name: "index_evals_on_recipient_id"
   end
 
   create_table "instructors", force: :cascade do |t|
@@ -64,5 +70,8 @@ ActiveRecord::Schema.define(version: 2021_12_04_195839) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "courses", "instructors"
+  add_foreign_key "evals", "students", column: "author_id"
+  add_foreign_key "evals", "students", column: "recipient_id"
   add_foreign_key "students", "courses"
 end
