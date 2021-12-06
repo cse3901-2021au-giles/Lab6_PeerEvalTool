@@ -5,7 +5,7 @@
 <h1>Manage teams</h1>
 <% end %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @teams.each do |team| %>
       <% if !instructor_logged_in? %>
-      	<% for i in 0...team.student_team_ids.length %>
-           <% if current_user.student_team_ids.include? team.student_team_ids[i] %>
+      	<% for i in 0...team.students.length %>
+           <%# if current_student.teams.include? team.students[i] %>
       	      <tr>
                  <td><%= link_to team.gname, team %></td>
 	               <td><%= team.student_team_ids.length %></td>
@@ -27,7 +27,7 @@
                  <td><%= link_to 'Show',team, :class=>"action" %>
                  </td>
               </tr>
-           <% end %>
+           <%# end %>
         <% end %>
       <% end %>
     <% end %>
@@ -37,11 +37,11 @@
       <% @teams.each do |team| %>
         <tr>
           <td><%= link_to team.name, team %></td>
-          <td><%= team.student_team_ids.length %></td>
+          <td><%= team.students.length %></td>
           <td><%= Course.find(team.course_id).name %></td>
           <td>
-              <%= link_to 'Add Member', new_student_team_path(:team_id => team.id), :class=>"action" %>
-              <%= link_to 'Delete', team, method: :delete, data: { confirm: 'Are you sure you want to delete ' + team.name + '?'}, :class=>"action" %></td>
+              <%= link_to 'Add Member', team_add_students_path, :class => "btn btn-default" %>
+              <%= button_to 'Delete Team', team, method: :delete, data: { confirm: 'Are you sure you want to delete ' + team.name + '?'}, :class=>"action" %></td>
         </tr>
       <% end %>
     <% end %>

@@ -12,8 +12,8 @@ class TeamsController < ApplicationController
   end
 
   def add_student
-    team = Team.find(params[:id])
-    @team.students << Student.find(params[:student_email])
+    #team = current_team#Team.find(params[:id])
+    #@team.students << Student.find(params[:student_email])
   end
 
   def create

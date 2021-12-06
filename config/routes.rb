@@ -20,11 +20,14 @@ Rails.application.routes.draw do
   post   '/instructor_login',   to: 'instructor_sessions#create'
   delete '/instructor_logout',  to: 'instructor_sessions#destroy'
   
+  get '/team/add_students', to: 'teams#add_student'
+  
   resources :students
   resources :instructors
   resources :projects
   resources :courses
   resources :student_teams
+  resources :teams
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
