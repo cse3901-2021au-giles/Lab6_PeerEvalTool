@@ -1,20 +1,29 @@
 <h1><%= @team.name.capitalize %></h1>
-<% if @team.studentTeam_ids.length == 0 %>	
+<% if @team.students.length == 0 %>	
     <%= "There are currently no members in this group" %>	
 <% else %>	
-<table><thead><tr><td>Student</td><td>Email</td><td>Score</td></tr></thead><tbody>
-<% for i in 0...@team.student_team_ids.length %>
-	<tr><td>
-	<%= Student.find(Student_team.find(@team.student_teams_ids[i]).student_id).name %>
-	</td>
-	<td>
-	<%= Student.find(Student_team.find(@team.student_team_ids[i]).student_id).email %>
-	</td>
-	<td>
-	<%= Student.find(Student_team.find(@team.student_team_ids[i]).student_id).score %>
-	</td></tr>
-
+<table class="table"><thead><tr><th>Student</th><th>Email</th><th>Score</th></tr></thead>
+<tbody>
+  <% for i in 0...@team.students.length %>
+    <tr>
+      <td>
+        <%= @team.students[i].name %>
+      </td>
+      <td>
+        <%= @team.students[i].email %>
+      </td>
+      <td> **Add Score Here**
+        <%#= @team.students[i].score %>
+      </td>
+    </tr>
 <% end %>
 </tbody></table>
 <% end %>
-    <br><%= link_to 'Back to Groups', teams_path, :class => "btn btn-default" %>
+<br><%= link_to 'Back to Teams', teams_path, :class => "btn btn-default" %>
+
+
+
+
+
+
+
