@@ -1,6 +1,6 @@
 <h1>Classes</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,20 +10,25 @@
   </thead>
 
   <tbody>
-    <% if instructor_logged_in? %>
-      <% @courses.each do |course| %>
+      <% if instructor_logged_in? %>
+        <% @courses.each do |course| %>
 	    
-	<tr><% if student_signed_in? and course.student_id == current_student.id%>
-		<td><%= link_to course.name, course %></td>
-              	<td><%= course.team_ids.length %></td>
-              <td>
-<%= link_to 'Add Group', new_team_path(:course_id => course.id), :class => "action" %>
-<%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action"%>
-              </td>
-            <% end %>
+	        <tr><% if student_logged_in? and course.student_id == current_student.id%>
+		        <td><%= link_to course.name, course %></td>
+            <td><%= course.team_ids.length %></td>
           <% end %>
-        </tr>
-	<% end %>
+
+          <tr><% if instructor_logged_in? and course.instructor_id == current_instructor.id%>
+		        <td><%= link_to course.name, course %></td>
+            <td><%= course.team_ids.length %></td>
+          <% end %>
+          <td>
+            <%= link_to 'Add Group', new_team_path(:course_id => course.id), :class => "action" %>
+            <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action"%>
+          </td>
+          </tr>
+	  <% end %>
+    <% end %>
   </tbody>
 </table>
 <br>
