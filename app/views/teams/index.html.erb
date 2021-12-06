@@ -1,15 +1,52 @@
 
-<% provide(:title, 'All Teams') %>
-<h1>All Teams</h1>
+<% if !instructor_logged_in? %>
+<h1>teams</h1>
+<% else %>
+<h1>Manage teams</h1>
+<% end %>
 
 <table>
-  <% @teams.each do |team| %>
-    <div>
-      <%= link_to team.name, team_path(team) %>
-      <%= link_to "Edit", edit_team_path(team)%>
-      <%= link_to 'Remove', team, { :onclick =>  "return confirm('Are you sure?')", method: :delete } %>
-    </div>
-  <% end %>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of Members</th>
+      <th>Class</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <% if !instructor_logged_in? %>
+      	<% for i in 0...team.student_team_ids.length %>
+           <% if current_user.student_team_ids.include? team.student_team_ids[i] %>
+      	      <tr>
+                 <td><%= link_to team.gname, team %></td>
+	               <td><%= team.student_team_ids.length %></td>
+                 <td><%= Course.find(team.course_id).cname %></td>
+                 <td><%= link_to 'Show',team, :class=>"action" %>
+                 </td>
+              </tr>
+           <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <!-- If user signed in is admin and owner of team, show each team name, members, and link to detail of each team -->
+    <% if instructor_logged_in? %>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= link_to team.name, team %></td>
+          <td><%= team.student_team_ids.length %></td>
+          <td><%= Course.find(team.course_id).name %></td>
+          <td>
+              <%= link_to 'Add Member', new_student_team_path(:team_id => team.id), :class=>"action" %>
+              <%= link_to 'Delete', team, method: :delete, data: { confirm: 'Are you sure you want to delete ' + team.name + '?'}, :class=>"action" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to "Add a New Team", new_team_path %>
+<!-- <br><%= link_to 'Back to teams', teams_path, :class => "btn btn-default" %>
+ --><br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>

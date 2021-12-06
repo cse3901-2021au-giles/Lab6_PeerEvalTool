@@ -1,0 +1,15 @@
+<h1>Editing Students in Teams/h1>
+<div class="field">
+<%= form.label "Student:" %></br>
+<%= form.select :student_id, Student.collect {|p| ["#{p.name}: (#{p.email})", p.id ] } %>
+</div>
+
+<div class="field">
+<%= form.hidden_field :team_id, :value => Team.find(params[:team_id]).id, :readonly => true %>
+</div>
+<br><br>
+<div class="actions">
+<%= form.submit "Add Student", :class => "btn btn-primary"%>
+<br><%= link_to 'Back to Groups', teams_path, :class => "btn btn-default" %>
+</div>
+<% end %>
