@@ -21,9 +21,9 @@
       	<% for i in 0...team.students.length %>
            <%# if current_student.teams.include? team.students[i] %>
       	      <tr>
-                 <td><%= link_to team.gname, team %></td>
+                 <td><%= link_to team.name, team %></td>
 	               <td><%= team.student_team_ids.length %></td>
-                 <td><%= Course.find(team.course_id).cname %></td>
+                 <td><%= Course.find(team.course_id).name %></td>
                  <td><%= link_to 'Show',team, :class=>"action" %>
                  </td>
               </tr>

@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
         redirect_to students_path
       end
         @project = Project.new
-        #@teams = Team.where('id = ?', current_student.team_id)
     end
 
     def create
@@ -48,7 +47,7 @@ class ProjectsController < ApplicationController
       private
     
         def project_params
-          params.require(:project).permit(:name, :description)
+          params.require(:project).permit(:name, :description, :course_id)
         end
     
         def current_project
