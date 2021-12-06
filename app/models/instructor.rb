@@ -1,5 +1,5 @@
 class Instructor < ApplicationRecord
-  has_one :course
+  has_many :courses
   has_many :teams
   
   
