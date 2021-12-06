@@ -4,35 +4,36 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Number of Groups</th>
+      <th>Number of Teams</th>
       <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
-      <% if instructor_logged_in? %>
-        <% @courses.each do |course| %>
-	    
-	        <tr><% if student_logged_in? and course.student_id == current_student.id%>
-		        <td><%= link_to course.name, course %></td>
-            <td><%= course.team_ids.length %></td>
-          <% end %>
+    <% if instructor_logged_in? %>
+      <% @courses.each do |course| %>
+        <tr> <% if student_logged_in? and course.student_id == current_student.id%>
+          <td><%= link_to course.name, course %></td>
+          <td><%= course.team_ids.length %></td>
+        <% end %>
 
-          <tr><% if instructor_logged_in? and course.instructor_id == current_instructor.id%>
-		        <td><%= link_to course.name, course %></td>
-            <td><%= course.team_ids.length %></td>
-          <% end %>
+        <% if instructor_logged_in? and course.instructor_id == current_instructor.id%>
+          <td><%= link_to course.name, course %></td>
+          <td><%= course.team_ids.length %></td>
+          
           <td>
-            <%= link_to 'Add Group', new_team_path(:course_id => course.id), :class => "action" %>
-            <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action"%>
+            <%= link_to 'Add Team', new_team_path(:course_id => course.id), :class => "action btn btn-default" %>
+            <%= link_to 'Delete Class', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action btn btn-default"%>
           </td>
-          </tr>
-	  <% end %>
+        </tr>
+        <% end %>
+	    <% end %>
     <% end %>
   </tbody>
 </table>
 <br>
 <% if instructor_logged_in? %>
-  <%= link_to 'New Class', new_course_path, :class => "new" %></br>
-  <%= link_to 'Go to Groups', teams_path %>
+  <%= link_to 'New Class', new_course_path, :class => "new btn btn-default" %>
+  <br><br>
+  <%= link_to 'Go to Teams', teams_path, :class => "btn btn-default" %>
 <% end %>

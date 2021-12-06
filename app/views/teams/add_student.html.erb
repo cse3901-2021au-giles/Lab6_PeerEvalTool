@@ -8,11 +8,6 @@
 
 <%= form.select :student_id, Student.where(!instructor_logged_in?).collect {|p| ["#{p.name}: (#{p.email})", p.id ] },prompt: "Choose one..." %>
 </div>
-<div class="actions">
-<%= form.submit "Add Student", :class => "btn btn-primary"%>
-<br><%#= link_to 'Back to Groups', teams_path, :class => "btn btn-default" %>
-</div>
-<%end%>
 
 
 <div class="field">

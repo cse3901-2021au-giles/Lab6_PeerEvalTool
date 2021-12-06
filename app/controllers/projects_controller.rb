@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
       if !instructor_logged_in?
         redirect_to students_path
       end
+        @course = Course.find(params[:course_id])
         @project = Project.new
     end
 

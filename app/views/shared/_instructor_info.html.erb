@@ -1,4 +1,7 @@
-<%= link_to gravatar_for(current_instructor, size: 50), current_instructor %>
-<h1><%= current_instructor.name %></h1>
-<span><%= link_to "view my profile", current_instructor %></span>
+<h1>
+  <%= link_to gravatar_for(current_instructor), current_instructor %>
+  <%= current_instructor.name %>
+</h1>
+<br>
+<span><%= link_to "View Profile", current_instructor, :class => 'btn btn-default' %></span>
 <span><%#COMMENTED OUT= pluralize(current_student.evals.count, "evals") %></span>

@@ -1,11 +1,48 @@
-<% provide(:title, 'All Projects') %>
-<h1>All Projects</h1>
+<% if !instructor_logged_in? %>
+  <h1>Projects</h1>
+<% else %>
+  <h1>Manage Projects</h1>
+<% end %>
 
-<table>
-  <% @projects.each do |project| %>
+<table class="table">
+  <thead>
     <tr>
-      <td><%= link_to project.name, project_path(project) %></td>
-  <% end %>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @projects.each do |proj| %>
+      <%# if !instructor_logged_in? %>
+      	<%# for i in 0...team.students.length %>
+           <%# if current_student.teams.include? proj.course.students[i] %>
+      	      <tr>
+                 <td><%#= link_to team.name, team %></td>
+	               <td><%#= team.student_team_ids.length %></td>
+                 <td><%#= Course.find(team.course_id).name %></td>
+                 <td><%#= link_to 'Show',team, :class=>"action" %>
+                 </td>
+              </tr>
+           <%# end %>
+        <%# end %>
+      <%# end %>
+    <%# end %>
+
+    <!-- If user signed in is admin and owner of team, show each team name, members, and link to detail of each team -->
+    <% @projects.each do |proj| %>
+      <% if instructor_logged_in? and Course.find(proj.course_id).instructor_id == current_instructor.id %>
+        <tr>
+          <td><%= link_to proj.name, proj %></td>
+          <td><%= Course.find(proj.course_id).name %></td>
+          <td>
+              <%= link_to 'Delete Project', proj, method: :delete, data: { confirm: 'Are you sure you want to delete ' + proj.name + '?'}, :class => "action btn btn-default" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to "Add a project", new_project_path %>
+<%= link_to "New project", new_project_path, :class => "btn btn-default" %>
