@@ -16,6 +16,7 @@ before_action :current_instructor, only: [:show, :edit, :update, :destroy]
   def create
     @instructor = Instructor.new(instructor_params)
     if @instructor.save
+    instructor_log_in @instructor
       redirect_to instructors_path
     else
       render 'new'
