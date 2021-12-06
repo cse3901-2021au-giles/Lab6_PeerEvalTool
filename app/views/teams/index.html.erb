@@ -40,7 +40,7 @@
           <td><%= team.students.length %></td>
           <td><%= Course.find(team.course_id).name %></td>
           <td>
-              <%= link_to 'Add Member', team_add_students_path, :class => "btn btn-default" %>
+              <%= link_to 'Add Member', team_add_students_path(:id => team.id), :class => "btn btn-default" %>
               <%= button_to 'Delete Team', team, method: :delete, data: { confirm: 'Are you sure you want to delete ' + team.name + '?'}, :class=>"action" %></td>
         </tr>
       <% end %>

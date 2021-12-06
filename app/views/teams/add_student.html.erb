@@ -3,17 +3,20 @@
 <%= form_with(model: @team, local: true) do |form| %>
 <div class="field">
 <%= form.label "Student:" %></br>
-<%= form.select :student_id, Student.where(!instructor_logged_in?).collect {|p| ["#{p.name}: (#{p.email})", p.id ] } %>
+
+<%= form.collection_select :student_id, Student.where(!instructor_logged_in?).all, :id, :name, prompt: "Choose one..." %>
+
+<%= form.select :student_id, Student.where(!instructor_logged_in?).collect {|p| ["#{p.name}: (#{p.email})", p.id ] },prompt: "Choose one..." %>
 </div>
 
-<!--
+
 <div class="field">
 <%#= form.hidden_field :team_id, :value => current_team.id, :readonly => true %>
 </div>
 <br><br>
 <div class="actions">
-<%#= form.submit "Add Student", :class => "btn btn-primary"%>
-<br><%#= link_to 'Back to Groups', teams_path, :class => "btn btn-default" %>
+<%= form.submit "Add Student", :class => "btn btn-primary"%></div>
+<br><br>
+<%= link_to 'Back to Groups', teams_path, :class => "btn btn-default" %>
 </div>
-<%# end %>
--->
+<% end %>
