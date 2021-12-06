@@ -1,4 +1,4 @@
-## README for Homies on Rails Project 6, Peer Evaluation Tool.
+# README for Homies on Rails Project 6, Peer Evaluation Tool.
 
 For this project, Homies on Rails implemented a Peer Evaluation Tool that allows instructors to create an account to do the following:
 
@@ -13,11 +13,11 @@ As a student, you will have the following functionality:
 * View the projects and description of projects for your group
 * Give feedback and ratings to other members of your team
 
-# Running our program:
+## Running our program:
 
 To run our program, clone the repository to your machine, and enter the Lab6_PeerEvalTool folder. From here, run "bundle install" to install gem dependencies for the project. Then run "rails db:migrate" to create the tables of the database for our project. Finally, run "rails server" and open the application on firefox with link "localhost/3000"
 
-# Testing:
+## Testing:
 
 In order to run the testing we have produced for this project, run "rails test"
 
