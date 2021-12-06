@@ -1,0 +1,26 @@
+<%= form_with(model: evaluate, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :attempt %>
+    <%= form.check_box :attempt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ratee_id %>
+    <%= form.number_field :ratee_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group_id %>
+    <%= form.number_field :group_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
