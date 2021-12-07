@@ -15,7 +15,7 @@
     <% if current_user.try(:admin?) %>
       <% @courses.each do |course| %>
 	    
-	<tr><% if user_signed_in? and course.user_id == current_user.id%>
+	<tr><% if logged_in? and course.user_id == current_user.id%>
 		<td><%= link_to course.cname, course %></td>
               	<td><%= course.group_ids.length %></td>
               <td>

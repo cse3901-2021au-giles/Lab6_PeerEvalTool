@@ -61,7 +61,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = current_user.courses.build(course_params)
-    @course.semester = params[:semester]
 
     # Creates a new course and saves it
       if @course.save

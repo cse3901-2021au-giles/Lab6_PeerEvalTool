@@ -20,5 +20,7 @@
   </tr>
 </table>
 
-<%= link_to "Sign Up Now!", new_user_path,:class=>"btn btn-default" %>
+<% if !logged_in? %>
+    <%= link_to "Sign Up Now!", new_user_path,:class=>"btn btn-default" %>
+<% end %>
 <br><br><br><br><br>
