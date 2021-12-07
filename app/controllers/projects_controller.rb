@@ -3,11 +3,11 @@ class ProjectsController < ApplicationController
 
     def index
       # URL redirection to home page if user is not logged in
-      if !user_logged_in?
+      if !logged_in?
         redirect_to welcomes_path
       end
       # URL redirection to homepage if user logged and is not admin
-      if user_logged_in? and current_user.try(:admin?)
+      if logged_in? and current_user.try(:admin?)
         @projects = Project.where(user_id: current_user)
       else
         @projects = Project.all
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   
     def show
     # URL redirection to home page if user is not logged in
-      if !user_logged_in?
+      if !logged_in?
         redirect_to welcomes_path
       end
   
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   
     def new
       # URL redirection to home page if user is not logged in
-      if !user_logged_in?
+      if !logged_in?
         redirect_to welcomes_path
       end
       # Create a new project
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
    
     def edit
        # URL redirection to home page if user is not logged in
-      if !user_logged_in?
+      if !logged_in?
         redirect_to welcomes_path
       end
     end

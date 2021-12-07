@@ -3,11 +3,11 @@ class CoursesController < ApplicationController
 
   def index
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     # URL redirection to homepage if user logged in is not admin
-    if user_logged_in? and !current_user.try(:admin?)
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
     # show all courses for current user
@@ -17,12 +17,12 @@ class CoursesController < ApplicationController
 
   def show
     # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
 
     # URL redirection to homepage if user logged in is not admin
-    if user_logged_in? and !current_user.try(:admin?)
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
     # show all groups for a course
@@ -33,12 +33,12 @@ class CoursesController < ApplicationController
 
   def new
    # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
 
     # URL redirection to homepage if user logged in is not admin
-    if user_logged_in? and !current_user.try(:admin?)
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
     # new course add page
@@ -48,12 +48,12 @@ class CoursesController < ApplicationController
 
   def edit
     # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
 
     # URL redirection to homepage if user logged in is not admin
-    if user_logged_in? and !current_user.try(:admin?)
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
   end

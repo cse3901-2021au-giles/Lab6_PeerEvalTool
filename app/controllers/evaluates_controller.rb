@@ -3,7 +3,7 @@ class EvaluatesController < ApplicationController
 
   def index
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     @evaluates = Evaluate.all
@@ -11,7 +11,7 @@ class EvaluatesController < ApplicationController
 
   def show
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
   end
@@ -19,7 +19,7 @@ class EvaluatesController < ApplicationController
 
   def new
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     @evaluate = Evaluate.new
@@ -28,7 +28,7 @@ class EvaluatesController < ApplicationController
 
   def edit
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
   end
