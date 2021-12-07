@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_assginment, only: [:show, :edit, :update, :destroy]
+  before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
   def index
     if !user_logged_in?
@@ -9,7 +9,7 @@ class MembershipsController < ApplicationController
       redirect_to welcomes_path
     end
 
-    @assignments = Assignment.all
+    @memberships = Membership.all
   end
 
   def show
@@ -21,7 +21,7 @@ class MembershipsController < ApplicationController
       redirect_to welcomes_path
     end
 
-    @assignment = Assignment.new
+    @membership = Membership.new
   end
 
   def edit
@@ -29,11 +29,11 @@ class MembershipsController < ApplicationController
 
   def create
     # Create a new member
-    @assignment = Assignment.new(assignment_params)
+    @membership = Membership.new(membership_params)
 
-      if @assignment.save
-        flash[:success] = "Project was aslogged successfully"
-        redirect_to projects_path
+      if @membership.save
+        flash[:success] = "group was aslogged successfully"
+        redirect_to groups_path
       else
         render 'new'
       end
@@ -41,9 +41,9 @@ class MembershipsController < ApplicationController
 
   def update
     # Update a member
-      if @assignment.update(assignment_params)
-        flash[:success] = "Project was updated successfully"
-        redirect_to projects_path
+      if @membership.update(membership_params)
+        flash[:success] = "group was updated successfully"
+        redirect_to groups_path
       else
         render 'edit'
       end
@@ -52,29 +52,29 @@ class MembershipsController < ApplicationController
   def destroy
 
     Evaluate.all.collect.each do |evaluate|
-      if evaluate.user_id == @assignment.user_id
+      if evaluate.user_id == @membership.user_id
         evaluate.destroy
       end
     end
 
     Rating.all.collect.each do |rating|
-      if rating.user_id == @assignment.user_id
+      if rating.user_id == @membership.user_id
         rating.destroy
       end
     end
 
     # Removed a member
-    @assignment.destroy
-      flash[:success] = "Assignment was removed successfully"
-      redirect_to projects_path
+    @membership.destroy
+      flash[:success] = "membership was removed successfully"
+      redirect_to groups_path
   end
 
   private
-    def set_assignment
-      @assignment = Assignment.find(params[:id])
+    def set_membership
+      @membership = Membership.find(params[:id])
     end
 
-    def assignment_params
-      params.require(:assignment).permit(:user_id, :project_id)
+    def membership_params
+      params.require(:membership).permit(:user_id, :group_id, :q1, :q2, :q3, :q4)
     end
 end
