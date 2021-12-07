@@ -33,7 +33,7 @@ class MembershipsController < ApplicationController
 
       if @membership.save
         flash[:success] = "Member was added to group successfully"
-        redirect_to memberships_path
+        redirect_to groups_path
       else
         render 'new'
       end
@@ -43,7 +43,7 @@ class MembershipsController < ApplicationController
     # Update a member
       if @membership.update(membership_params)
         flash[:success] = "Group members were updated successfully"
-        redirect_to memberships_path
+        redirect_to groups_path
       else
         render 'edit'
       end
