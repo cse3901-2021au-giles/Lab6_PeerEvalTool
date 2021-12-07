@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :groups, :through => :memberships
   has_many :courses
   has_many :evaluates
+  has_many :projects
 
   before_save { email.downcase! }
   validates :Fname, presence: true, length: { maximum: 50 }

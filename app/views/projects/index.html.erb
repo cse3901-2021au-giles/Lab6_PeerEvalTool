@@ -17,7 +17,7 @@
 
   <tbody>
     <% @projects.each do |project| %>
-      <% if user_signed_in? and !current_user.try(:admin?) %>
+      <% if logged_in? and !current_user.try(:admin?) %>
       	<% for i in 0...project.assignment_ids.length %>
            <% if current_group.assignment_ids.include? project.assignment_ids[i] %>
       	      <tr>
@@ -44,6 +44,3 @@
   </tbody>
 </table>
 
-<% if current_user.try(:admin?) %>
-  <%= link_to 'New Project', new_project_path, :class => "new" %></br>
-<% end %>
