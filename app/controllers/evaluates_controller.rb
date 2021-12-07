@@ -2,21 +2,21 @@ class EvaluatesController < ApplicationController
   before_action :set_evaluate, only: [:show, :edit, :update, :destroy]
 
   def index
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
     @evaluates = Evaluate.all
   end
 
   def show
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
   end
 
 
   def new
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
     @evaluate = Evaluate.new
@@ -24,7 +24,7 @@ class EvaluatesController < ApplicationController
 
 
   def edit
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
   end

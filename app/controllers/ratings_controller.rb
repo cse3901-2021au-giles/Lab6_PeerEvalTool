@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
     @ratings = Rating.all
@@ -13,7 +13,7 @@ class RatingsController < ApplicationController
   end
 
   def new
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
     @rating = Rating.new
@@ -21,7 +21,7 @@ class RatingsController < ApplicationController
 
 
   def edit
-    if !user_signed_in?
+    if !user_logged_in?
       redirect_to welcomes_path
     end
   end

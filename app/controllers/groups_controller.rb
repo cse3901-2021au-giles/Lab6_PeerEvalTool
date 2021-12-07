@@ -2,11 +2,11 @@
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !user_logged_in?
       redirect_to welcomes_path
     end
-    if user_signed_in? and current_user.try(:admin?)
+    if user_logged_in? and current_user.try(:admin?)
       @groups = Group.where(user_id: current_user)
     else
       @groups = Group.all
@@ -15,8 +15,8 @@
 
 
   def show
-  # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+  # URL redirection to home page if user is not logged in
+    if !user_logged_in?
       redirect_to welcomes_path
     end
 
@@ -24,8 +24,8 @@
 
 
   def new
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !user_logged_in?
       redirect_to welcomes_path
     end
     # Create a new group
@@ -34,8 +34,8 @@
 
  
   def edit
-     # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !user_logged_in?
       redirect_to welcomes_path
     end
   end

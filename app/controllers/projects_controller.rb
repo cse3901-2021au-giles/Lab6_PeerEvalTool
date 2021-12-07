@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
     before_action :set_project, only: [:show, :edit, :update, :destroy]
 
     def index
-      # URL redirection to home page if user is not signed in
-      if !user_signed_in?
+      # URL redirection to home page if user is not logged in
+      if !user_logged_in?
         redirect_to welcomes_path
       end
-      if user_signed_in? and current_user.try(:admin?)
+      if user_logged_in? and current_user.try(:admin?)
         @projects = Project.where(user_id: current_user)
       else
         @projects = Project.all
@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
   
   
     def show
-    # URL redirection to home page if user is not signed in
-      if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+      if !user_logged_in?
         redirect_to welcomes_path
       end
   
@@ -24,8 +24,8 @@ class ProjectsController < ApplicationController
   
   
     def new
-      # URL redirection to home page if user is not signed in
-      if !user_signed_in?
+      # URL redirection to home page if user is not logged in
+      if !user_logged_in?
         redirect_to welcomes_path
       end
       # Create a new project
@@ -34,8 +34,8 @@ class ProjectsController < ApplicationController
   
    
     def edit
-       # URL redirection to home page if user is not signed in
-      if !user_signed_in?
+       # URL redirection to home page if user is not logged in
+      if !user_logged_in?
         redirect_to welcomes_path
       end
     end

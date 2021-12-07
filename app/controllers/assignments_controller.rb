@@ -2,10 +2,10 @@ class AssignmentsController < ApplicationController
     before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
     def index
-      if !user_signed_in?
+      if !user_logged_in?
         redirect_to welcomes_path
       end
-      if user_signed_in? and !current_user.try(:admin?)
+      if user_logged_in? and !current_user.try(:admin?)
         redirect_to welcomes_path
       end
   
@@ -16,8 +16,8 @@ class AssignmentsController < ApplicationController
     end
   
     def new
-       # URL redirection to home page if user is not signed in
-      if !user_signed_in?
+       # URL redirection to home page if user is not logged in
+      if !user_logged_in?
         redirect_to welcomes_path
       end
   
@@ -32,7 +32,7 @@ class AssignmentsController < ApplicationController
       @assignment = Assignment.new(assignment_params)
   
         if @assignment.save
-          flash[:success] = "Project was assigned successfully"
+          flash[:success] = "Project was aslogged successfully"
           redirect_to groups_path
         else
           render 'new'
