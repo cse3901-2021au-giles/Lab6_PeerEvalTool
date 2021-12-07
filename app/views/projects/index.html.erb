@@ -1,3 +1,4 @@
+<%# allows user to see all projects they have, or admin to see all projects and the groups they are assigned to %>
 <% if !current_user.try(:admin?) %>
 <h1>Projects</h1>
 <% else %>

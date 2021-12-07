@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
 
   def index
     # URL redirection to homepage if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     @ratings = Rating.all
@@ -15,7 +15,7 @@ class RatingsController < ApplicationController
 
   def new
      # URL redirection to homepage if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     #new rating
@@ -26,7 +26,7 @@ class RatingsController < ApplicationController
   def edit
     #edit a rating
      # URL redirection to homepage if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
   end

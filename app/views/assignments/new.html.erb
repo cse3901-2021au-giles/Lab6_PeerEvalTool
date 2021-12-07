@@ -1,3 +1,4 @@
+<%# Renders assignment _form and allows an admin user to create a new assignment %>
 <h1>Add Group to <%= Project.find(params[:project_id]).name.capitalize %></h1>
 
 <%= render 'form', assignment: @assignment %>
