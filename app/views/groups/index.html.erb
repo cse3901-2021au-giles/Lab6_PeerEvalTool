@@ -18,7 +18,7 @@
 
   <tbody>
     <% @groups.each do |group| %>
-      <% if user_signed_in? and !current_user.try(:admin?) %>
+      <% if logged_in? and !current_user.try(:admin?) %>
       	<% for i in 0...group.membership_ids.length %>
            <% if current_user.membership_ids.include? group.membership_ids[i] %>
       	      <tr>
@@ -34,7 +34,7 @@
     <% end %>
 
     <!-- If user signed in is admin and owner of group, show each group name, members, and link to detail of each group -->
-    <% if current_user.try(:admin?) %>
+    <% if logged_in? and current_user.try(:admin?) %>
       <% @groups.each do |group| %>
         <tr>
           <td><%= link_to group.gname, group %></td>
@@ -75,4 +75,4 @@
 </table>
 
 <!-- <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
- --><br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+ --><br><%= link_to 'Go to Classes', courses_path, :class => "btn btn-default" %>
