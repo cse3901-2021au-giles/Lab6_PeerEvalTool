@@ -30,6 +30,7 @@
 <% if current_user.try(:admin?) %>
   <%= link_to 'New Class', new_course_path, :class => "new" %>
   <br>
+  <br>
   <%= link_to 'Go to Groups', groups_path, id: "link"%>
 <% end %>
 </div>
