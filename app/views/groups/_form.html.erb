@@ -6,12 +6,13 @@
     <%= form.text_field :gname %>
     <%= form.hidden_field :user_id, :value => current_user.id  %>
     <%= form.hidden_field :course_id, :value => Course.find(params[:course_id]).id  %>
+    <%#= form.hidden_field :course_id, :value => params[:course_id]  %>
   </div>
 
   <div class="actions">
     <%= form.submit "Create Group", :class => "btn btn-default" %><br>
-    <%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %><br>
-    <%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+    <%#= link_to 'Go to Groups', groups_path, :class => "btn btn-default" %><br>
+    <%#= link_to 'Go to Classes', courses_path, :class => "btn btn-default" %>
   </div>
 
 <% end %>

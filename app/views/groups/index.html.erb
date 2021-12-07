@@ -1,5 +1,6 @@
 <%# Shows all groups a student belongs to %>
 <%# OR shows all group names, its members and allow the user to delete or add to it %>
+<br><br><br>
 <% if !current_user.try(:admin?) %>
 <h1>Groups</h1>
 <% else %>
@@ -74,5 +75,4 @@
   </tbody>
 </table>
 
-<br><%= link_to 'Go to Groups', groups_path, :class => "btn btn-default" %>
 <br><%= link_to 'Go to Classes', courses_path, :class => "btn btn-default" %>
