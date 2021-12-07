@@ -42,12 +42,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-<<<<<<< HEAD
-gem 'bootstrap-sass'
-=======
-gem 'devise', '~> 4.2'
->>>>>>> 43d7c4a333ba1e5f2c3782b723a3a2c8dd3c64e6
-
 gem 'webpacker', '5.4.0'
 
 
