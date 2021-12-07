@@ -2,8 +2,8 @@
 
 one:
   cname: MyString
-  semester: MyString
+  user_id: MyString
 
 two:
   cname: MyString
-  semester: MyString
+  user_id: MyString

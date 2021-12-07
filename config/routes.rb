@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   resources :groups
   resources :memberships
   resources :welcomes
+  resources :projects
+  resources :assignments
   get '/welcomes/confirmation', to: 'welcomes#confirmation'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
  
-  devise_for :users
   root 'welcomes#index'
 
   get  '/signup', to: 'welcomes#signup'

@@ -1,16 +1,15 @@
 class Membership < ApplicationRecord
-	belongs_to :user
-	belongs_to :group
-
-	validate :validate_group_id
-	validate :validate_user_id
-	
-	private
-	   def validate_group_id
-	      errors.add(:group_id, "does not exist") unless Group.exists?(self.group_id)
-	   end
-	private	
-	   def validate_user_id
-	      errors.add(:user_id, "does not exist") unless User.exists?(self.user_id)
-	   end
+	has_many :memberships
+	has_many :ratings
+	has_many :groups, :through => :memberships
+	has_many :courses
+	has_many :evaluates
+  
+	before_save { email.downcase! }
+	validates :Fname, presence: true, length: { maximum: 50 }
+	validates :Lname, presence: true, length: { maximum: 50 }
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	validates :email, presence: true, length: { maximum: 255 },
+					  format: { with: VALID_EMAIL_REGEX },
+					  uniqueness: true
 end

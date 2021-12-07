@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_050913) do
+ActiveRecord::Schema.define(version: 2021_12_07_141539) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "cname"
-    t.string "semester"
-    t.integer "user_id"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,28 +54,26 @@ ActiveRecord::Schema.define(version: 2019_04_22_050913) do
     t.integer "evaluate_id"
     t.integer "user_id"
     t.integer "group_id"
-    t.float "score"
+    t.string "score_float"
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.boolean "admin", default: false, null: false
+    t.string "email"
+    t.string "password"
+    t.boolean "admin"
     t.string "name"
     t.string "Fname"
     t.string "Lname"
-    t.decimal "score", precision: 5, scale: 2, default: "0.0"
-    t.integer "commented_num", default: 0
+    t.decimal "score"
+    t.integer "commented_num"
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   create_table "welcomes", force: :cascade do |t|

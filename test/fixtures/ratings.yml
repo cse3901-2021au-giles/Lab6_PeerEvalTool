@@ -1,18 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: 
+one:
   evaluate_id: 1
   user_id: 1
   group_id: 1
-  score: 5
+  score_float: MyString
+  comments: MyString
 
-
-two: 
-  evaluate_id: 2
+two:
+  evaluate_id: 1
   user_id: 1
   group_id: 1
-  score: 6
+  score_float: MyString
+  comments: MyString

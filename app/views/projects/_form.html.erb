@@ -1,0 +1,18 @@
+<%= form_with(model: project, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :name %>
+    <%= form.label :Description %>
+    <%= form.text_field :description %>
+    <%= form.hidden_field :course_id, :value => Course.find(params[:course_id]).id  %>
+    <%= form.hidden_field :user_id, :value => current_user.id  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Project", :class => "btn btn-default" %><br>
+    <%= link_to 'Back to Projects', projects_path, :class => "btn btn-default" %><br>
+    <%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+  </div>
+
+<% end %>

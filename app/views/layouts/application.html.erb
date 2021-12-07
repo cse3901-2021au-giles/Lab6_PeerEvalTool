@@ -11,7 +11,7 @@
 
   <body>
 
-      <% if user_signed_in? %>
+      <% if logged_in? %>
         	<% if current_user.try(:admin?) %>
 			<%= render "layouts/nav-instructor" %>
       		<% else %>
@@ -19,11 +19,6 @@
       		<% end %>
       <% else %>
       	<%= render "layouts/nav-anon" %>
-      <% end %>
-
-      <div class="content">
-      <% flash.each do |message_type, message| %>
-      <div class="divforalerts"> <%= message %> </div>
       <% end %>
       <%= yield %>
   </div>
