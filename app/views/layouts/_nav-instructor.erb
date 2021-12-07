@@ -6,8 +6,8 @@
       <div class="user">
         <a href="" id="username"><%= current_user.email %></a>
         <div class="options">
-          <%= link_to <a href="/users/edit">Settings</a>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <a href="/users/edit">Settings</a>
+          <%= link_to "Sign out", logout_path, method: :delete %>
         </div>
       </div>
     </div>

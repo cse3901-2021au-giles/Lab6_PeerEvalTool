@@ -3,11 +3,11 @@
 
   def index
     # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     # URL redirection to homepage if user logged in is not admin
-    if user_logged_in? and current_user.try(:admin?)
+    if logged_in? and current_user.try(:admin?)
       @groups = Group.where(user_id: current_user)
     else
       @groups = Group.all
@@ -17,7 +17,7 @@
 
   def show
   # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
 
@@ -26,7 +26,7 @@
 
   def new
     # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
     # Create a new group
@@ -36,7 +36,7 @@
  
   def edit
      # URL redirection to home page if user is not logged in
-    if !user_logged_in?
+    if !logged_in?
       redirect_to welcomes_path
     end
   end

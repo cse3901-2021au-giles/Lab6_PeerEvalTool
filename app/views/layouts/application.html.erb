@@ -10,7 +10,7 @@
   </head>
 
   <body>
-
+    <div>
       <% if logged_in? %>
         	<% if current_user.try(:admin?) %>
 			<%= render "layouts/nav-instructor" %>
