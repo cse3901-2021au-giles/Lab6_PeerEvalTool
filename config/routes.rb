@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :projects
   resources :assignments
   resources :users
+  
+  root 'welcomes#index'
+  
   get '/welcomes/confirmation', to: 'welcomes#confirmation'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
