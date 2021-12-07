@@ -17,7 +17,7 @@
 
   <tbody>
     <% @projects.each do |project| %>
-      <% if user_signed_in? and !current_user.try(:admin?) %>
+      <% if logged_in? and !current_user.try(:admin?) %>
       	<% for i in 0...project.assignment_ids.length %>
            <% if current_group.assignment_ids.include? project.assignment_ids[i] %>
       	      <tr>
@@ -32,7 +32,6 @@
       <% end %>
     <% end %>
 
-    <!-- If user signed in is admin and owner of project, show each project name, members, and link to detail of each project -->
     <% if current_user.try(:admin?) %>
       <% @projects.each do |project| %>
         <tr>
@@ -45,5 +44,3 @@
   </tbody>
 </table>
 
-<!-- <br><%= link_to 'Back to projects', projects_path, :class => "btn btn-default" %>
- --><br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
