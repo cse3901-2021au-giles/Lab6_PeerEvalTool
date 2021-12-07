@@ -1,8 +1,9 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 body {
   background-color: #fff;
   color: #333;
   margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -69,7 +70,6 @@ div {
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px -7px 0;
-    background-color: #c00;
     color: #fff;
   }
 
