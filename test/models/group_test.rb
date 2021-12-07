@@ -4,7 +4,7 @@ class GroupTest < ActiveSupport::TestCase
   def setup
     @user = User.create(Fname: "Example", Lname: "User", email: "user@example.com",
                      password: "foobar", admin: false)
-    @course = Course.create(cname: "Course", semester: "AU21", user_id: @user.id)
+    @course = Course.create(cname: "Course", user_id: @user.id)
     @group = Group.new(gname: "Example", course_id: @course.id, user_id: @user.id)
   end
 
