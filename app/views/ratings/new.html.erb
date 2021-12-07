@@ -13,9 +13,11 @@
 
 
   <div class="field">
-  <label>Overall Rating: <br></label>
-  <%= form.text_area :score %>
-  </div>
+    <div class="slide-container">
+      <label>Overall Rating: <br> <span class="score"></span></label>
+	<%= form.range_field :score, :min=>0, :max=>10, :class=>"slider", :value=>5%>
+    </div>
+  </div><br><br>
 
   <div class="field">
     <label>Comments on <%=(User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname).capitalize%>'s performance:</label>
@@ -29,4 +31,10 @@
 
 <% end %>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".slide-container .score").text($(".slider").val());
+$(".slider").on("input",function(){$(".slide-container .score").text($(".slider").val());})});
+</script>
 
