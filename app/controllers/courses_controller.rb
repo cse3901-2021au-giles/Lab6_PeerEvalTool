@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     if user_logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
-    # show all courses
+    # show all courses for current user
     @courses = Course.where(user_id: current_user)
   end
 

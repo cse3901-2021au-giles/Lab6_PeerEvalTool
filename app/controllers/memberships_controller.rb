@@ -2,9 +2,11 @@ class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
   def index
+    # URL redirection to homepage if user is not logged
     if !user_logged_in?
       redirect_to welcomes_path
     end
+    # URL redirection to homepage if user logged in is not admin
     if user_logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
@@ -50,6 +52,8 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
+    #destroy relation between student and group
+    #delete student from group and all eval and rating data associated with them
 
     Evaluate.all.collect.each do |evaluate|
       if evaluate.user_id == @membership.user_id

@@ -2,6 +2,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
+    # URL redirection to homepage if user is not logged in
     if !user_logged_in?
       redirect_to welcomes_path
     end
@@ -13,20 +14,25 @@ class RatingsController < ApplicationController
   end
 
   def new
+     # URL redirection to homepage if user is not logged in
     if !user_logged_in?
       redirect_to welcomes_path
     end
+    #new rating
     @rating = Rating.new
   end
 
 
   def edit
+    #edit a rating
+     # URL redirection to homepage if user is not logged in
     if !user_logged_in?
       redirect_to welcomes_path
     end
   end
 
   def create
+    #create and save a rating. associates a rating with a user
     @rating = Rating.new(rating_params)
 
       if @rating.save
@@ -44,6 +50,7 @@ class RatingsController < ApplicationController
   end
 
   def update
+    #update rating
       if @rating.update(rating_params)
         flash[:success] = "Rating was successfully updated"
         redirect_to welcomes_path
@@ -54,6 +61,7 @@ class RatingsController < ApplicationController
 
 
   def destroy
+    #delete a rating and redirect to home page
     @rating.destroy
     flash[:success] = "Rating was successfully deleted"
     redirect_to welcomes_path

@@ -6,6 +6,7 @@
     if !user_logged_in?
       redirect_to welcomes_path
     end
+    # URL redirection to homepage if user logged in is not admin
     if user_logged_in? and current_user.try(:admin?)
       @groups = Group.where(user_id: current_user)
     else
@@ -63,6 +64,7 @@
   end
 
   def destroy
+    #destroy a group and all evals and ratings associated with it
     Evaluate.all.collect.each do |evaluate|
       if evaluate.group_id == @group.id
         evaluate.destroy
