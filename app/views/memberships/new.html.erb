@@ -1,3 +1,4 @@
+<%# renders _form to add a student to a group %>
 <h1>Add Student to <%= Group.find(params[:group_id]).gname.capitalize %></h1>
 
 <%= render 'form', membership: @membership %>

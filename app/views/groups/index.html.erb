@@ -1,3 +1,5 @@
+<%# Shows all groups a student belongs to %>
+<%# OR shows all group names, its members and allow the user to delete or add to it %>
 <% if !current_user.try(:admin?) %>
 <h1>Groups</h1>
 <% else %>
