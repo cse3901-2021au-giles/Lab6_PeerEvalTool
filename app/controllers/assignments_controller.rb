@@ -1,14 +1,17 @@
 class AssignmentsController < ApplicationController
     before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
+    #controller for index view of assignments
     def index
+      # URL redirection to home page if user is not logged in
       if !user_logged_in?
         redirect_to welcomes_path
       end
+      # URL redirection to homepage if user logged in is not admin
       if user_logged_in? and !current_user.try(:admin?)
         redirect_to welcomes_path
       end
-  
+      
       @assignments = Assignment.all
     end
   
@@ -51,19 +54,7 @@ class AssignmentsController < ApplicationController
   
     def destroy
   
-      Evaluate.all.collect.each do |evaluate|
-        if evaluate.group_id == @assignment.group_id
-          evaluate.destroy
-        end
-      end
-  
-      Rating.all.collect.each do |rating|
-        if rating.group_id == @assignment.group_id
-          rating.destroy
-        end
-      end
-  
-      # Removed a member
+      # Delete a project that has been assigned to the group
       @assignment.destroy
         flash[:success] = "Project was deleted uccessfully"
         redirect_to groups_path

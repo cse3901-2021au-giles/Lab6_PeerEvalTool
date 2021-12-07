@@ -11,7 +11,6 @@ class ProjectTest < ActiveSupport::TestCase
     @project = Project.create(name: "Example", description: "example project", user_id: @user.id, course_id: @course.id)
   end
 
-
   test "should be valid" do
     assert @project.valid?
   end

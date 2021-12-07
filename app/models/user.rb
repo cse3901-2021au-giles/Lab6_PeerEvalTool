@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  #model for admin users (instructors) and users (students)
 
   has_many :memberships
   has_many :ratings

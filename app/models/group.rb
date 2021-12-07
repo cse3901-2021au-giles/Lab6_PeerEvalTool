@@ -1,4 +1,7 @@
 class Group < ApplicationRecord
+	#created by an admin user, for a specific course they are teaching
+	#has many users through the memberships model
+	#has many projects through the assignments model
 	has_many :memberships
 	has_many :evaluates
 	has_many :users, :through => :memberships

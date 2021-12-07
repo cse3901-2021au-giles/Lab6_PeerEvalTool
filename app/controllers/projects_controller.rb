@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
       if !user_logged_in?
         redirect_to welcomes_path
       end
+      # URL redirection to homepage if user logged and is not admin
       if user_logged_in? and current_user.try(:admin?)
         @projects = Project.where(user_id: current_user)
       else
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
   
   
     def update
-      # Update a group
+      # Update a project
         if @project.update(project_params)
           flash[:success] = "Project was successfully updated"
           redirect_to projects_path
@@ -63,6 +64,7 @@ class ProjectsController < ApplicationController
     end
   
     def destroy
+      #destry a project and all evals asociated with it
       Evaluate.all.collect.each do |evaluate|
         if evaluate.group_id == @project.id
           evaluate.destroy

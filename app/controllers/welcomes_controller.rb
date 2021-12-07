@@ -1,5 +1,8 @@
 class WelcomesController < ApplicationController
   before_action :set_welcome, only: [:show, :edit, :update, :destroy]
+  #welcome page/home page for application. describes what the website does and
+  #allows a user to make an account or sign in
+  #different headers displayed based on who is logged in
 
   def confirmation
   end
