@@ -1,25 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  password: MyString
-  admin: false
-  name: MyString
-  Fname: MyString
-  Lname: MyString
-  score: 9.99
-  commented_num: 1
-  email: MyString
-  reset_password_token: MyString
+#one:
+#  email: MyString
+#  password: MyString
+#  admin: false
+#  Fname: MyString
+#  Lname: MyString
+#  score: 9.99
+#  commented_num: 1
+#  email: MyString
 
-two:
-  email: MyString
-  password: MyString
-  admin: false
-  name: MyString
-  Fname: MyString
-  Lname: MyString
-  score: 9.99
-  commented_num: 1
-  email: MyString
-  reset_password_token: MyString
+#two:
+#  email: MyString
+#  password: MyString
+#  admin: false
+#  Fname: MyString
+#  Lname: MyString
+#  score: 9.99
+#  commented_num: 1
+#  email: MyString
+

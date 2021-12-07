@@ -6,7 +6,7 @@
         <a href="" id="username"><%= current_user.email %> - <%= current_user.score %></a>
         <div class="options">
           <a href="/users/edit">Settings</a>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Sign out", logout_path, method: :delete %>
         </div>
       </div>
     </div>

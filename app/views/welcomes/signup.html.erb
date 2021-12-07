@@ -1,4 +1,4 @@
 <div class="signup">
     <h1>Getting Started</h1>
-    <h3>Are you a <%= link_to "Student", "signup_path"  %> or an <%= link_to "Instructor",signup_path %>?<br><br>(Select one) </h3>
+    <h3>Are you a <%= link_to "Student", new_user_path(:admin => false)  %> or an <%= link_to "Instructor", new_user_path(:admin => true) %>?<br><br>(Select one) </h3>
 </div>

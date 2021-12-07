@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_154945) do
+ActiveRecord::Schema.define(version: 2021_12_07_172141) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer "group_id"
@@ -71,18 +71,15 @@ ActiveRecord::Schema.define(version: 2021_12_07_154945) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
     t.boolean "admin"
-    t.string "name"
     t.string "Fname"
     t.string "Lname"
     t.decimal "score"
     t.integer "commented_num"
-    t.string "reset_password_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["email"], name: "index_users_on_email"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   create_table "welcomes", force: :cascade do |t|
