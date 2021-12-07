@@ -1,13 +1,13 @@
 <%# Option for header links based on the user and if they're signed in %>
   <nav>
     <div class="links">
-	<%= link_to 'Groups', groups_path %>
-	<%= link_to 'Classes', courses_path %>
-  <%= link_to 'Projects', projects_path %>
+        <%= link_to 'Groups', groups_path %>
+        <%= link_to 'Classes', courses_path %>
+        <%= link_to 'Projects', projects_path %>
       <div class="user">
         <a href="" id="username"><%= current_user.email %></a>
         <div class="options">
-          <a href="/users/edit">Settings</a>
+          <%= link_to <a href="/users/edit">Settings</a>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         </div>
       </div>
