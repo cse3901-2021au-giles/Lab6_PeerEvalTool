@@ -5,12 +5,10 @@ class ProjectTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.create(Fname: "Example", Lname: "User", email: "user@example.com",
-    password: "foobar", admin: false)
+    @user = User.create(Fname: "Example", Lname: "User", email: "user@example.com", password: "foobar", admin: false)
     @course = Course.create(cname: "Course", user_id: @user.id)
-    @project = Project.create(name: "Example", description: "example project", user_id: @user.is, course_id: @course.id)
+    @project = Project.create(name: "Example", description: "Example", user_id: @user.id, course_id: @course.id)
   end
-
 
   test "should be valid" do
     assert @project.valid?
