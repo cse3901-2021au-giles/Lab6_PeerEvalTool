@@ -31,7 +31,7 @@ class RatingsController < ApplicationController
 
       if @rating.save
         flash[:success] = "Rating was successfully created"
-        redirect_to ratings_path
+        redirect_to welcomes_path
 	
 	current_score=User.find(Evaluate.find(@rating.evaluate_id).ratee_id).score
 	new_num=User.find(Evaluate.find(@rating.evaluate_id).ratee_id).commented_num + 1
@@ -46,7 +46,7 @@ class RatingsController < ApplicationController
   def update
       if @rating.update(rating_params)
         flash[:success] = "Rating was successfully updated"
-        redirect_to ratings_path
+        redirect_to welcomes_path
       else
         render 'edit'
       end
@@ -56,7 +56,7 @@ class RatingsController < ApplicationController
   def destroy
     @rating.destroy
     flash[:success] = "Rating was successfully deleted"
-    redirect_to ratings_path
+    redirect_to welcomes_path
   end
 
   private
