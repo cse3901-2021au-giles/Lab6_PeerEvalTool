@@ -20,11 +20,10 @@
       	<% for i in 0...group.membership_ids.length %>
            <% if current_user.membership_ids.include? group.membership_ids[i] %>
       	      <tr>
-                 <td><%= link_to group.gname, group %></td>
+                 <td><%= link_to group.gname, group, :class => "btn btn-default", id: "link"%></td>
 	               <td><%= group.membership_ids.length %></td>
                  <td><%= Course.find(group.course_id).cname %></td>
-                 <td><%= link_to 'Show',group, :class=>"action" %>
-                 </td>
+                 <td><%= link_to 'Show',group, :class=>"action", id: "link"%></td>
               </tr>
            <% end %>
         <% end %>
@@ -35,7 +34,7 @@
     <% if current_user.try(:admin?) %>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= link_to group.gname, group %></td>
+          <td><%= link_to group.gname, group, id: "link" %></td>
           <td><%= group.membership_ids.length %></td>
           <td><%= Course.find(group.course_id).cname %></td>
           <td>
@@ -61,11 +60,11 @@
                   <% end %>
 
                   <% if resultsExist %>
-                    <%= link_to 'View Evaluation Results', ratings_path(:group_id => group.id) , :class=>"action" %>
+                    <%= link_to 'View Evaluation Results', ratings_path(:group_id => group.id) , :class=>"action button", id: "btn"%>
                   <% end %>
 
-              <%= link_to 'Add Member', new_membership_path(:group_id => group.id), :class=>"action" %>
-              <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure you want to delete ' + group.gname + '?'}, :class=>"action" %></td>
+              <%= link_to 'Add Member', new_membership_path(:group_id => group.id), :class=>"action button", id: "btn"%>
+              <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure you want to delete ' + group.gname + '?'}, :class=>"action", id: "btn"%></td>
         </tr>
       <% end %>
     <% end %>
@@ -73,4 +72,4 @@
 </table>
 
 <!-- <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
- --><br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+ --><br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default", id: "btn"%>

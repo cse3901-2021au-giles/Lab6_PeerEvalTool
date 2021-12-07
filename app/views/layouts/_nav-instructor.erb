@@ -1,7 +1,8 @@
   <nav>
     <div class="links">
-	<%= link_to 'Groups', groups_path %>
-	<%= link_to 'Classes', courses_path %>
+    <%= link_to "HOR", root_path, id: "logo"%>
+    <%= link_to 'Groups', groups_path%>
+    <%= link_to 'Classes', courses_path%>
       <div class="user">
         <a href="" id="username"><%= current_user.email %></a>
         <div class="options">
