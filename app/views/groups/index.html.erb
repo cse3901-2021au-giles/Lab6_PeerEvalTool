@@ -51,10 +51,8 @@
                       <% end %>
                   <% end %>
 
-                  <% if group.evaluate_ids.empty? || evalsFinished %>
-                    <% if group.membership_ids.length > 1 %>
-                      <%= link_to 'Send Evaluations to Students', new_welcome_path(:group_id => group.id), id: "btn",data: { confirm: 'Are you sure you want to open evaluations for ' + group.gname + '?'}, :class=>"action"%>
-                    <% end %>
+                  <% if group.membership_ids.length > 1 %>
+                    <%= link_to 'Send Evaluations to Students', new_welcome_path(:group_id => group.id), id: "btn", data: { confirm: 'Are you sure you want to open evaluations for ' + group.gname + '?'}, :class=>"action"%>
                   <% end %>
 
                   <% resultsExist = false %>

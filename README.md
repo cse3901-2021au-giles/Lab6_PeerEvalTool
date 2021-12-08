@@ -16,7 +16,7 @@ As a student, you will have the following functionality:
 
 ## Running our program:
 
-To run our program, clone the repository to your machine, and enter the Lab6_PeerEvalTool folder. From here, run "bundle install" to install gem dependencies for the project. Then run "rails db:migrate" to create the tables of the database for our project. Finally, run "rails server" and open the application on firefox with link "localhost/3000"
+To run our program, clone the repository to your machine, and enter the Lab6_PeerEvalTool folder. From here, run "bundle install" to install gem dependencies for the project. Next, run rails Webpacker:install to be sure it is up to date. Then run "rails db:migrate" to create the tables of the database for our project. Finally, run "rails server" and open the application on firefox with link "localhost/3000"
 
 ## Testing:
 
