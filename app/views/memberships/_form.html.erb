@@ -3,14 +3,14 @@
 
 <br><br>
   <div class="field">
-    <%= form.label "Student:" %></br>
+    <%= form.label "Student:" %><br>
     <%= form.select :user_id, User.where(:admin => false).collect {|p| ["#{p.Fname} #{p.Lname}: (#{p.email})", p.id ] } %>
   </div>
 
 
 
   <div class="field">
-    <%= form.hidden_field :group_id, :value => Group.find(params[:group_id]).id, :readonly => true %>
+    <%= form.hidden_field :group_id, :value => params[:group_id], :readonly => true %>
   </div>
 <br><br>
   <div class="actions">
