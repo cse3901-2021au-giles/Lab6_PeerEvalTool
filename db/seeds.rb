@@ -17,3 +17,7 @@
     courses = Course.create([{cname: "3901", user_id: 1},
                                 {cname: "3902", user_id: 1},
                                 {cname: "3903", user_id: 1}])
+                                
+    groups = Group.create([{gname: "Homies on Rails", course_id: 1, user_id: 1},
+                            {gname: "Fantastic Four", course_id: 1, user_id: 1},
+                            {gname: "Byte Me", course_id: 1, user_id: 1}])

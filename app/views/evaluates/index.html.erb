@@ -21,7 +21,7 @@
           <td><%= User.find(e.ratee_id).Fname %> <%= User.find(e.ratee_id).Lname %></td>
           <td><%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary", id: "btn" %>
               <% if current_user.try(:admin?) %>
-                <br><%= link_to 'Destroy', e, method: :delete, data: { confirm: 'Are you sure?' } %><br> </td>
+                <%= link_to 'Destroy', e, method: :delete, id: "btn",data: { confirm: 'Are you sure?' } %><br> </td>
               <% end %>
         </tr>
 
