@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_021343) do
+ActiveRecord::Schema.define(version: 2021_12_08_040032) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer "group_id"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2021_12_08_021343) do
     t.string "name"
     t.text "description"
     t.integer "user_id"
-    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_021343) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "assignmentt_id"
     t.index ["email"], name: "index_users_on_email"
   end
 

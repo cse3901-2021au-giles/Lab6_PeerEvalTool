@@ -2,6 +2,7 @@ class User < ApplicationRecord
   #model for admin users (instructors) and users (students)
 
   has_many :memberships
+  has_many :assignments
   has_many :ratings
   has_many :groups, :through => :memberships
   has_many :courses

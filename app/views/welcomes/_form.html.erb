@@ -10,7 +10,6 @@
     <% end %>
     <% end %>
   <% end %>
-
   <% @pairs = @members.permutation(2).to_a %>
   <% @pairs.each do |p| %>
     <% @eval = Evaluate.new(:group_id => params[:group_id], :user_id => p[0].id, :ratee_id => p[1].id, :attempt => false) %>
