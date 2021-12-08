@@ -1,4 +1,4 @@
-<%# shoes all evals for the current user (student) %>
+<%# shows all evals for the current user (student) %>
 <%# Showe all evals for the groups in an instructors groups. %>
 <h1>Evaluations</h1>
 
@@ -13,7 +13,6 @@
 
   <tbody>
     <% @evaluates.each do |e| %>
-
       <% if (e.user_id == current_user.id and e.attempt == false) or current_user.try(:admin?) %>
         <tr>
           <td><%= Group.find(e.group_id).gname %></td>

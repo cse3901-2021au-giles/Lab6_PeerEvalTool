@@ -4,6 +4,7 @@ class Evaluate < ApplicationRecord
   #has many ratings (averages the ratings from multiple teammates)
   belongs_to :user
   belongs_to :group
+  belongs_to :project
   has_many :ratings
 	
   validates :user_id, presence: true
