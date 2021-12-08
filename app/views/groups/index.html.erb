@@ -13,7 +13,9 @@
       <th>Name</th>
       <th>Number of Members</th>
       <th>Class</th>
+      <th>Evaluations</th>
       <th>Actions</th>
+      
     </tr>
   </thead>
 
@@ -50,7 +52,7 @@
                   <% end %>
 
                   <% if group.membership_ids.length > 1 %>
-                    <%= link_to 'Send Evaluations to Students', new_welcome_path(:group_id => group.id), data: { confirm: 'Are you sure you want to open evaluations for ' + group.gname + '?'}, :class=>"action"%>
+                    <%= link_to 'Send Evaluations to Students', new_welcome_path(:group_id => group.id), id: "btn", data: { confirm: 'Are you sure you want to open evaluations for ' + group.gname + '?'}, :class=>"action"%>
                   <% end %>
 
                   <% resultsExist = false %>
@@ -63,9 +65,11 @@
                   <% if resultsExist %>
                     <%= link_to 'View Evaluation Results', ratings_path(:group_id => group.id) , :class=>"action button", id: "btn"%>
                   <% end %>
-
+            </td>
+            <td>
               <%= link_to 'Add Member', new_membership_path(:group_id => group.id), :class=>"action button", id: "btn"%>
-              <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure you want to delete ' + group.gname + '?'}, :class=>"action", id: "btn"%></td>
+              <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure you want to delete ' + group.gname + '?'}, :class=>"action", id: "btn"%>
+            </td>
         </tr>
       <% end %>
     <% end %>
