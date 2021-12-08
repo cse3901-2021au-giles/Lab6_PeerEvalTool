@@ -6,7 +6,7 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
-    assert @course.valid?
+    assert_not @course.valid?
   end
   
 
