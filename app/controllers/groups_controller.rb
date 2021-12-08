@@ -30,7 +30,8 @@
       redirect_to welcomes_path
     end
     # Create a new group
-    @group = current_user.groups.build
+    #@group = current_user.groups.build
+    @group = Group.new
   end
 
  
@@ -42,7 +43,8 @@
   end
 
   def create
-    @group = current_user.groups.build(group_params)
+    #@group = current_user.groups.build(group_params)
+    @group = Group.new(group_params)
     # Create and save a group
       if @group.save
         flash[:success] = "Group was successfully created"
