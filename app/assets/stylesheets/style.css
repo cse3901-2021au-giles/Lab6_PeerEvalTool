@@ -35,27 +35,9 @@ display:block;
 text-align:center;
 transition:.2s;
 }
-/* a.new{
-font-size:14pt;
-display:inline-block;
-text-align:center;
-border-radius:50px;
-border: 2px solid #d71920;
-padding:2px 8px;
-margin: 2px;
-transition:.2s;
-color: #333;
-}
-a.new:hover{
-background-color: #d71920
-}
-a.new::before{
-font-size:18pt;
-vertical-align:-1px;
-content:"+ "
-} */
+
 table:not(.landing-page){
-width:100%;
+width:75%;
 border-collapse:collapse;
 border: 2px solid #000;
 }
@@ -426,10 +408,11 @@ a.new:hover{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 95px;
+  width: auto;
   margin: 4px 2px;
   border-radius: 2px;
   transition-duration: 300ms;
+  min-width: 60px;
 }
 
 #btn:hover{
@@ -466,4 +449,8 @@ span{
 }
 span #link{
   padding: 0px;
+}
+
+table{
+  margin-inline: auto;
 }

@@ -1,5 +1,6 @@
 <%# shoes all evals for the current user (student) %>
 <%# Showe all evals for the groups in an instructors groups. %>
+<br><br><br>
 <h1>Evaluations</h1>
 
 <table>
@@ -18,7 +19,7 @@
         <tr>
           <td><%= Group.find(e.group_id).gname %></td>
           <td><%= User.find(e.ratee_id).Fname %> <%= User.find(e.ratee_id).Lname %></td>
-          <td><%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary" %>
+          <td><%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary", id: "btn" %>
               <% if current_user.try(:admin?) %>
                 <br><%= link_to 'Destroy', e, method: :delete, data: { confirm: 'Are you sure?' } %><br> </td>
               <% end %>

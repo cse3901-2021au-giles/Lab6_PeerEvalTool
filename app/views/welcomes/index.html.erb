@@ -4,11 +4,7 @@
     <td class="text">
       <h3>This is an online academic tool that helps students provide feedback to their teammates during group projects.<h3>
     </td>
-  </tr>
-</table>
-<table class="landing-page">
-  <tr>
-    <td class="text">
+    <td>
       <h1>How it works</h1>
       <ul>
         <li>Instructor creates the class</li>
@@ -21,6 +17,6 @@
 </table>
 
 <% if !logged_in? %>
-    <%= link_to "Sign Up Now!", new_user_path,:class=>"btn btn-default" %>
+    <%= link_to "Sign Up Now!", new_user_path,:class=>"btn btn-default", id: "btn"%>
 <% end %>
 <br><br><br><br><br>

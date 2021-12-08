@@ -3,6 +3,7 @@
 <% if @group.membership_ids.length == 0 %>	
     <%= "There are currently no members in this group" %>	
 <% else %>	
+<br><br><br><h1><%= @group.gname %><h1>
 <table><thead><tr class = header><td>User</td><td>Email</td><td>Score</td></tr></thead><tbody>
 <% for i in 0...@group.membership_ids.length %>
 	<tr><td>

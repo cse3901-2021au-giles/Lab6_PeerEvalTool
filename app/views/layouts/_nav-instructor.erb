@@ -5,8 +5,9 @@
         <%= link_to 'Groups', groups_path %>
         <%= link_to 'Classes', courses_path %>
         <%= link_to 'Projects', projects_path %>
+        <%= link_to 'Evaluations', evaluates_path%>
       <div class="user">
-        <a href="" id="username"><%= current_user.email %></a>
+        <a href="" id="username"><%= current_user.Fname %></a>
         <div class="options">
           <a href="/users/edit">Settings</a>
           <%= link_to "Sign out", logout_path, method: :delete %>
