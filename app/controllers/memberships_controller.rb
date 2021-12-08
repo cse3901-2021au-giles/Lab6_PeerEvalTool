@@ -34,7 +34,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
 
       if @membership.save
-        flash[:success] = "group was aslogged successfully"
+        flash[:success] = "group was logged successfully"
         redirect_to groups_path
       else
         render 'new'
@@ -79,6 +79,6 @@ class MembershipsController < ApplicationController
     end
 
     def membership_params
-      params.require(:membership).permit(:user_id, :group_id, :q1, :q2, :q3, :q4)
+      params.require(:membership).permit(:user_id, :group_id)
     end
 end
