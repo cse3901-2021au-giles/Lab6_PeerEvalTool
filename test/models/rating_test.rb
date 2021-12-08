@@ -23,4 +23,9 @@ class RatingTest < ActiveSupport::TestCase
     @rating.group_id = " "
     assert_not @rating.valid?
   end
+
+  test "comments should be present" do
+    @rating.comments = " "
+    assert_not @rating.valid?
+  end
 end
