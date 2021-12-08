@@ -17,7 +17,7 @@
     <% @ratings.each do |r| %>
       <tr>
         <% if (r.group_id == Group.find(params[:group_id]).id) %>
-          <td><%= User.find(r.user_id).Fname %><% User.find(r.user_id).Lname %></td>
+          <td><%= User.find(r.user_id).Fname + " " + User.find(r.user_id).Lname %></td>
           <td><%= User.find(Evaluate.find(r.evaluate_id).ratee_id).Fname %><% User.find(Evaluate.find(r.evaluate_id).ratee_id).Lname %></td>
           <td><%= Group.find(r.group_id).gname %></td>
           <td><%= r.score %></td>
