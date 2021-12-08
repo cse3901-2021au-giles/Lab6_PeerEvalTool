@@ -1,0 +1,17 @@
+<%# Form for adding a project to a group as an assignment %>
+<%= form_with(model: assignment, local: true) do |form| %>
+
+<br><br>
+  <div class="field">
+    <%= form.label "Group:" %></br>
+    <%= form.select :group_id, Group.collect {|p| ["#{p.gname}, p.id ] } %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :project_id, :value => Project.find(params[:project_id]).id, :readonly => true %>
+  </div>
+<br><br>
+  <div class="actions">
+    <%= form.submit "Assign Project", :class => "btn btn-primary"%>
+    <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
+  </div>
+<% end %>

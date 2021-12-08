@@ -5,6 +5,7 @@ For this project, Homies on Rails implemented a Peer Evaluation Tool that allows
 * Create a Course
 * Assign groups to a course
 * Add students to their groups
+* Assign a project to groups in the course
 * Easily view the feedback and ratings students are giving each other within their teams
 
 As a student, you will have the following functionality:

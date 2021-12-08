@@ -2,11 +2,12 @@
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
-    if user_signed_in? and current_user.try(:admin?)
+    # URL redirection to homepage if user logged in is not admin
+    if logged_in? and current_user.try(:admin?)
       @groups = Group.where(user_id: current_user)
     else
       @groups = Group.all
@@ -15,8 +16,8 @@
 
 
   def show
-  # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+  # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
 
@@ -24,24 +25,26 @@
 
 
   def new
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
     # Create a new group
-    @group = current_user.groups.build
+    #@group = current_user.groups.build
+    @group = Group.new
   end
 
  
   def edit
-     # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
   end
 
   def create
-    @group = current_user.groups.build(group_params)
+    #@group = current_user.groups.build(group_params)
+    @group = Group.new(group_params)
     # Create and save a group
       if @group.save
         flash[:success] = "Group was successfully created"
@@ -63,6 +66,7 @@
   end
 
   def destroy
+    #destroy a group and all evals and ratings associated with it
     Evaluate.all.collect.each do |evaluate|
       if evaluate.group_id == @group.id
         evaluate.destroy

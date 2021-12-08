@@ -1,0 +1,47 @@
+<%# allows user to see all projects they have, or admin to see all projects and the groups they are assigned to %>
+<br><br><br>
+<% if !current_user.try(:admin?) %>
+<h1>Projects</h1>
+<% else %>
+<h1>Manage Projects</h1>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of projects</th>
+      <th>Class</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <% if logged_in? and !current_user.try(:admin?) %>
+      	<% for i in 0...project.assignment_ids.length %>
+           <% if current_group.assignment_ids.include? project.assignment_ids[i] %>
+      	      <tr>
+                 <td><%= link_to project.name, project %></td>
+	               <td><%= project.assignment_ids.length %></td>
+                 <td><%= Course.find(project.course_id).cname %></td>
+                 <td><%= link_to 'Show',project, :class=>"action" %>
+                 </td>
+              </tr>
+           <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if current_user.try(:admin?) %>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.name, project %></td>
+          <td><%= project.assignment_ids.length %></td>
+          <td><%= Course.find(project.course_id).cname %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

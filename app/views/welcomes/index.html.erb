@@ -1,3 +1,4 @@
+<%# home page before users have done anything on the site %>
 <table class="landing-page">
   <tr>
     <td class="text">
@@ -19,5 +20,7 @@
   </tr>
 </table>
 
-<%= link_to "Sign Up Now!",new_user_registration_path,:class=>"btn btn-default", id: "link"%>
+<% if !logged_in? %>
+    <%= link_to "Sign Up Now!", new_user_path,:class=>"btn btn-default" %>
+<% end %>
 <br><br><br><br><br>

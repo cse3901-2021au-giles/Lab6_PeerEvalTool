@@ -1,3 +1,6 @@
+<%# Lists all courses that an instructor has, and the number of groups in them %>
+<%# Also allows the instructor to add or delete a group to/from their class %>
+<br><br><br>
 <h1>Classes</h1>
 
 <table>
@@ -10,28 +13,28 @@
   </thead>
 
   <tbody>
-    <% if current_user.try(:admin?) %>
-      <% @courses.each do |course| %>
-        <tr><% if user_signed_in? and course.user_id == current_user.id%>
-          <td><%= link_to course.cname, course, id: "link"%></td>
-              <td><%= course.group_ids.length %></td>
-              <td>
-                <%= link_to 'Add Group', new_group_path(:course_id => course.id), :class => "action", :id => "btn" %>
-                <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action", :id => "btn" %>
-              </td>
-            <% end %>
-          <% end %>
-        </tr>
+    <% if logged_in? and current_user.try(:admin?) %>
+        <% @courses.each do |course| %>
+            <tr>
+                <% if course.user_id.to_i == current_user.id.to_i %>
+		            <td><%= link_to course.cname, course %></td>
+              	    <td><%= course.group_ids.length %></td>
+                    <td>
+                        <%= link_to 'Add Group', new_group_path(:course_id => course.id), :class => "action" %>
+                        <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action"%>
+                    </td>
+                <% end %>
+            </tr>
+        <% end %>
 	<% end %>
   </tbody>
 </table>
 <br>
 <div>
 <% if current_user.try(:admin?) %>
-  <%= link_to 'New Class', new_course_path, :class => "new" %>
-  <br>
-  <br>
-  <%= link_to 'Go to Groups', groups_path, id: "link"%>
+  <br><%= link_to 'New Class', new_course_path, :class => "new" %>
+  <br><%= link_to 'Go to Groups', groups_path %>
+  <br><%= link_to 'Go to Projects', projects_path %>
 <% end %>
 </div>
 

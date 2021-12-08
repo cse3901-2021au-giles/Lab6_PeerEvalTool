@@ -8,4 +8,13 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     get groups_url
     assert_response :redirect
   end
+  test "should show group" do
+    get group_url(@group)
+    assert_response :redirect
+  end
+
+  test "should get edit" do
+    get edit_group_url(@group)
+    assert_response :redirect
+  end
 end

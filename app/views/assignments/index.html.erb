@@ -1,0 +1,27 @@
+<%# Lists all the projects assigned to their perspective groups %>
+
+<h1>Groups assigned <%= Project.find(params[:project_id]).name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Groups</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |a| %>
+      <% if Project.find(params[:project_id]).id == a.project_id %>
+        <tr>
+          <td><%= Project.find(m.project_id).name %></td>
+          <td><%= Group.find(m.group_id).gname %></td>
+          <td><%= link_to 'Remove Group', m, method: :delete, data: { confirm: 'Are you sure?'}, :class=> "action" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br><%= link_to 'Back to Projects', projects_path %>

@@ -1,0 +1,14 @@
+<%# shows info for the groups working on a project %>
+
+<h2>Projects:</h2>
+<% if @project.group_ids.length == 0 %>
+	<h2>There are currently no groups working on this project</h2>
+<% end %>
+
+<table><tbody>
+<% for i in 0...@project.group_ids.length %>
+	
+	<tr><td><h3><%= link_to group.find(@project.group_ids[i]).gname, assignments_path(:group_id => @project.group_ids[i])  %>	</h3></td></tr>
+<% end %>
+</tbody></table>
+<%= link_to 'New Project', new_project_path(:project_id => @project.id), :class => "new" %></br>

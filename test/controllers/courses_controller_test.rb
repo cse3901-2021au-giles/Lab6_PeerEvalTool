@@ -4,23 +4,24 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @course = courses(:one)
   end
+  
   test "should get new" do
-    get courses_new_url
+    get new_course_url
     assert_response :success
   end
 
   test "should get show" do
-    get courses_show_url
+    get course_url(@course)
     assert_response :success
   end
 
   test "should get edit" do
-    get courses_edit_url
+    get edit_course_url(@course)
     assert_response :success
   end
 
   test "should get index" do
-    get courses_index_url
+    get courses_url
     assert_response :success
   end
 end

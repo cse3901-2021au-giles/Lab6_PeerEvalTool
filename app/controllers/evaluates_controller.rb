@@ -2,21 +2,24 @@ class EvaluatesController < ApplicationController
   before_action :set_evaluate, only: [:show, :edit, :update, :destroy]
 
   def index
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
     @evaluates = Evaluate.all
   end
 
   def show
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
   end
 
 
   def new
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
     @evaluate = Evaluate.new
@@ -24,12 +27,14 @@ class EvaluatesController < ApplicationController
 
 
   def edit
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
   end
 
   def create
+    #creates an eval and saves it
     @evaluate = Evaluate.new(evaluate_params)
 
       if @evaluate.save
@@ -41,6 +46,7 @@ class EvaluatesController < ApplicationController
   end
 
   def update
+    #updates eval attributes
       if @evaluate.update(evaluate_params)
         flash[:success] = "Evaluation was successfully updated"
         redirect_to evaluates_path
@@ -50,6 +56,7 @@ class EvaluatesController < ApplicationController
   end
 
   def destroy
+    #destroy eval
     @evaluate.destroy
       flash[:success] = "Evaluation was successfully deleted"
       redirect_to evaluates_path

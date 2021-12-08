@@ -2,27 +2,27 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :destroy]
 
   def index
-     # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+     # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
-    # URL redirection to homepage if user signed in is not admin
-    if user_signed_in? and !current_user.try(:admin?)
+    # URL redirection to homepage if user logged in is not admin
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
-    # show all courses
+    # show all courses for current user
     @courses = Course.where(user_id: current_user)
   end
 
 
   def show
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
 
-    # URL redirection to homepage if user signed in is not admin
-    if user_signed_in? and !current_user.try(:admin?)
+    # URL redirection to homepage if user logged in is not admin
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
     # show all groups for a course
@@ -32,13 +32,13 @@ class CoursesController < ApplicationController
 
 
   def new
-   # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+   # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
 
-    # URL redirection to homepage if user signed in is not admin
-    if user_signed_in? and !current_user.try(:admin?)
+    # URL redirection to homepage if user logged in is not admin
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
     # new course add page
@@ -47,13 +47,13 @@ class CoursesController < ApplicationController
 
 
   def edit
-    # URL redirection to home page if user is not signed in
-    if !user_signed_in?
+    # URL redirection to home page if user is not logged in
+    if !logged_in?
       redirect_to welcomes_path
     end
 
-    # URL redirection to homepage if user signed in is not admin
-    if user_signed_in? and !current_user.try(:admin?)
+    # URL redirection to homepage if user logged in is not admin
+    if logged_in? and !current_user.try(:admin?)
       redirect_to welcomes_path
     end
   end
@@ -61,7 +61,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = current_user.courses.build(course_params)
-    @course.semester = params[:semester]
 
     # Creates a new course and saves it
       if @course.save
