@@ -1,11 +1,4 @@
 <%# make a new rating to be attached to a team eval%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$(".slide-container .score").text($(".slider").val());
-$(".slider").on("input",function(){$(".slide-container .score").text($(".slider").val());})});
-</script>
-
 <div class="eval">
 <h1>Peer Evaluation for <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname %> <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Lname %></h1>
 <h3><%= Group.find(Evaluate.find(params[:evaluate_id]).group_id).gname.upcase %> - <%= Course.find(Group.find(Evaluate.find(params[:evaluate_id]).group_id).course_id).cname.upcase %></h3>
@@ -22,8 +15,9 @@ $(".slider").on("input",function(){$(".slide-container .score").text($(".slider"
 
   <div class="field">
     <div class="slide-container">
-      <label>Overall Rating: <br> <span class="score"></span></label>
-	<%= form.range_field :score, :min=>0, :max=>10, :class=>"slider", :value=>5%>
+      <label>Overall Rating:</label>
+	  <%= form.range_field :score, :min=>0, :max=>10, :class=>"slider", :oninput => "this.nextElementSibling.value = this.value"%>
+      <output class="score">5<output>
     </div>
   </div><br><br>
 
@@ -33,8 +27,8 @@ $(".slider").on("input",function(){$(".slide-container .score").text($(".slider"
   </div>
 
   <div class="actions">
-    <%= form.submit "Submit Evaluation"%><br>
-    <%= link_to 'Back', evaluates_path %>
+    <%= form.submit "Submit Evaluation", id: "btn"%><br><br>
+    <%= link_to 'Back', evaluates_path, id: "link" %>
   </div>
 
 <% end %>
