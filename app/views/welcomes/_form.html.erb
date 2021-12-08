@@ -1,4 +1,3 @@
-<%# form for the home page for a student that displayes their profile %>
 <%= form_with(model: welcome, local: true) do |form| %>
   <h1>Evaluations created!</h1>
 
@@ -12,11 +11,10 @@
     <% end %>
   <% end %>
 
-  <% @members.each_with_index do |member, n|  %>
-    <% @members.each_with_index do |member, m| %>
-      <% @eval = Evaluate.new(:group_id => Group.find(params[:group_id]).id, :user_id => @members[n].id, :ratee_id => @members[m].id, :attempt => false) %>
-      <% @eval.save %>
-    <% end %>
+  <% @pairs = @members.permutation(2).to_a %>
+  <% @pairs.each do |p| %>
+    <% @eval = Evaluate.new(:group_id => params[:group_id], :user_id => p[0].id, :ratee_id => p[1].id, :attempt => false) %>
+    <% @eval.save %>
   <% end %>
 
   <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>

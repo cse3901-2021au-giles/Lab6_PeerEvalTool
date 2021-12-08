@@ -34,7 +34,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
 
       if @membership.save
-        flash[:success] = "group was logged successfully"
+        flash[:success] = "group member was added successfully"
         redirect_to groups_path
       else
         render 'new'

@@ -9,7 +9,7 @@
       <div class="user">
         <a href="" id="username"><%= current_user.Fname %></a>
         <div class="options">
-          <a href="/users/edit">Settings</a>
+        <%= link_to 'Settings', edit_user_path(current_user.id) %>
           <%= link_to "Sign out", logout_path, method: :delete %>
         </div>
       </div>
