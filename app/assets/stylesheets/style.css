@@ -93,7 +93,7 @@ nav{
   position:fixed;
   text-align: right;
 	top:0;
-  background: #aaa;
+  background: #000;
   font-size: 11pt;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
@@ -459,4 +459,11 @@ a.new:hover{
 
 tr.header td{
   color:#fff;
+}
+
+span{
+  text-align: center;
+}
+span #link{
+  padding: 0px;
 }
