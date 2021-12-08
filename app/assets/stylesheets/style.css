@@ -1,8 +1,8 @@
 html{
   font-family: 'Roboto', sans-serif;
   word-wrap: break-word;
-  background-color: #F2F1E9;
-  color: #333;
+  background-color: #fff;
+  color: #000;
 text-align:center;
 }
 body{
@@ -35,49 +35,50 @@ display:block;
 text-align:center;
 transition:.2s;
 }
-a.new{
+/* a.new{
 font-size:14pt;
 display:inline-block;
 text-align:center;
 border-radius:50px;
-border: 2px solid #ADD8E6;
+border: 2px solid #d71920;
 padding:2px 8px;
 margin: 2px;
 transition:.2s;
 color: #333;
 }
 a.new:hover{
-background-color: #ADD8E6
+background-color: #d71920
 }
 a.new::before{
 font-size:18pt;
 vertical-align:-1px;
 content:"+ "
-}
+} */
 table:not(.landing-page){
 width:100%;
 border-collapse:collapse;
-border: 2px solid #ADD8E6;
+border: 2px solid #000;
 }
 
 thead tr{
-background-color:#ADD8E6;
+background-color:#000;
 font-weight:500;
 }
 
-tbody tr:nth-child(even){
-background-color:white;
-}
+/* tbody tr:nth-child(odd){
+background-color: #fff;
+} */
 
 th{
-color:#F2F1E9;
-background-color:#ADD8E6;
+color:#fff;
+background-color:#000;
 }
 
 td,th{
 padding:10pt;
 text-align:center;
-
+border-width: 1px;
+border-color: #000;
 }
 
 /* start of nav */
@@ -92,7 +93,7 @@ nav{
   position:fixed;
   text-align: right;
 	top:0;
-  color:#F2F1E9;
+  background: #000;
   font-size: 11pt;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
@@ -105,6 +106,7 @@ nav .links{
   nav .links{
     width: 100%;
     min-width: 300pt;
+    color:#fff;
   }
   nav #user{
     margin-right: 0;
@@ -113,7 +115,7 @@ nav .links{
 nav a{
   text-decoration: none;
   display: inline-block;
-  color:#dddddd;
+  color:#fff;
   padding: 12pt;
   margin: 0;
   position: relative;
@@ -187,8 +189,8 @@ input[type="email"],input[type="password"],input[type="submit"],input[type="text
   padding: 5pt;
   margin: 10pt 0;
   font-size: 12pt;
-  border-radius: 20pt;
-  border: 2px solid #ADD8E6;
+  border-radius: 2px;
+  border: 2px solid #d71920;
   text-align: center;
   outline: none;
   font-family: roboto;
@@ -215,10 +217,11 @@ input[type="submit"]{
   padding: 5pt 20pt;
 
   transition: .1s;
-  border: 2px solid #ADD8E6;
+  border: 2px solid #d71920;
 }
 input[type="submit"]:hover{
-  background-color: #ADD8E6;
+  color: white;
+  background-color: #d71920;
 }
 a{
   text-decoration: none;
@@ -240,7 +243,7 @@ a:hover{
 }
 
 .eval form textarea{
-  border: 4px solid #ADD8E6;
+  border: 4px solid #d71920;
   background: none;
   border-radius: 15pt;
   padding: 15pt;
@@ -260,7 +263,7 @@ a:hover{
   font-weight: 400;
 }
 .eval form input[type=submit]{
-  border: 4px solid #ADD8E6;
+  border: 4px solid #d71920;
   border-radius: 50pt;
   outline: none;
   padding: 10pt;
@@ -370,13 +373,13 @@ text-align:left;
   text-align: center;
   display: block;
   margin: 25pt auto;
-  border: 5pt solid #ADD8E6;
+  border: 5pt solid #d71920;
   border-radius: 100pt;
   color: #333;
   transition: .2s;
 }
 .get-started-button:hover{
-  background-color: #ADD8E6;
+  background-color: #d71920;
   color: #333;
 }
 .landing-page ul{
@@ -388,4 +391,79 @@ text-align:left;
   padding: 5pt 0;
   list-style:circle;
 }
+
+#link {
+  color: #d71920;
+  padding: 15px;
+}
+
+a.new{
+  background-color: white;
+  color: black;
+  border: 2px solid #d71920;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 20%;
+  margin: 4px 2px;
+  border-radius: 2px;
+  transition-duration: 300ms;
+}
+
+a.new:hover{
+  color: #fff;
+  background-color: #d71920;
+}
+
+#btn{
+  background-color: white;
+  color: black;
+  border: 2px solid #d71920;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 95px;
+  margin: 4px 2px;
+  border-radius: 2px;
+  transition-duration: 300ms;
+}
+
+#btn:hover{
+  color: #fff;
+  background-color: #d71920;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
   
+}
+#logo :hover {
+  color: white;
+  text-decoration: none;
+}
+
+.hidden{
+  display: none;
+}
+
+tr.header td{
+  color:#fff;
+}
+
+span{
+  text-align: center;
+}
+span #link{
+  padding: 0px;
+}

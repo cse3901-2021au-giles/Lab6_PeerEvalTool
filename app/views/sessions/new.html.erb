@@ -6,15 +6,15 @@
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.label :email, class: "hidden" %>
+            <%= f.email_field :email, class: 'form-control', placeholder: "Email"%>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.label :password, class: "hidden" %>
+            <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
         </div>
     </div>
 
@@ -25,4 +25,4 @@
     </div>
 <% end %>
 
-<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+<p><span>New user? <%= link_to "Sign up now!", new_user_path, id: "link" %></span></p>

@@ -17,11 +17,11 @@
         <% @courses.each do |course| %>
             <tr>
                 <% if course.user_id.to_i == current_user.id.to_i %>
-		            <td><%= link_to course.cname, course %></td>
+		            <td><%= link_to course.cname, course, id: "link" %></td>
               	    <td><%= course.group_ids.length %></td>
                     <td>
-                        <%= link_to 'Add Group', new_group_path(:course_id => course.id), :class => "action" %>
-                        <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action"%>
+                        <%= link_to 'Add Group', new_group_path(:course_id => course.id), :class => "action", id: "btn" %>
+                        <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action", id: "btn"%>
                     </td>
                 <% end %>
             </tr>
@@ -30,10 +30,12 @@
   </tbody>
 </table>
 <br>
+<div>
 <% if current_user.try(:admin?) %>
   <br><%= link_to 'New Class', new_course_path, :class => "new" %>
-  <br><%= link_to 'Go to Groups', groups_path %>
-  <br><%= link_to 'Go to Projects', projects_path %>
+  <br><br>
+  <%= link_to 'Go to Groups', groups_path, id: "link" %>
+  <%= link_to 'Go to Projects', projects_path, id: "link" %>
 <% end %>
-
+</div>
 

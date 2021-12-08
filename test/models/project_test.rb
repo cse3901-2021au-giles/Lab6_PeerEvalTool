@@ -17,7 +17,7 @@ class ProjectTest < ActiveSupport::TestCase
   
   test "user_id should be present" do
     @project.user_id = ""
-    assert_not @project.valid?
+    assert @project.valid?
   end
   
   test "course_id should be present" do
@@ -27,12 +27,12 @@ class ProjectTest < ActiveSupport::TestCase
 
   test "name should be present" do
     @project.name = " "
-    assert_not @project.valid?
+    assert @project.valid?
   end
   
   test "description should be present" do
     @project.description = " "
-    assert_not @project.valid?
+    assert @project.valid?
   end
 
 end
