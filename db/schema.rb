@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_012546) do
+ActiveRecord::Schema.define(version: 2021_12_08_021343) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer "group_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_012546) do
     t.string "Fname"
     t.string "Lname"
     t.decimal "score"
-    t.integer "commented_num"
+    t.integer "commented_num", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

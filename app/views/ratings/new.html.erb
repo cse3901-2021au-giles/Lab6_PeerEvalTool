@@ -1,4 +1,11 @@
 <%# make a new rating to be attached to a team eval%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".slide-container .score").text($(".slider").val());
+$(".slider").on("input",function(){$(".slide-container .score").text($(".slider").val());})});
+</script>
+
 <div class="eval">
 <h1>Peer Evaluation for <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname %> <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Lname %></h1>
 <h3><%= Group.find(Evaluate.find(params[:evaluate_id]).group_id).gname.upcase %> - <%= Course.find(Group.find(Evaluate.find(params[:evaluate_id]).group_id).course_id).cname.upcase %></h3>
@@ -32,10 +39,4 @@
 
 <% end %>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$(".slide-container .score").text($(".slider").val());
-$(".slider").on("input",function(){$(".slide-container .score").text($(".slider").val());})});
-</script>
 

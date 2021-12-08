@@ -39,11 +39,12 @@ class RatingsController < ApplicationController
         flash[:success] = "Rating was successfully created"
         redirect_to welcomes_path
 	
-	current_score=User.find(Evaluate.find(@rating.evaluate_id).ratee_id).score
-	new_num=User.find(Evaluate.find(@rating.evaluate_id).ratee_id).commented_num + 1
-	new_score=(current_score+@rating.score)/new_num
-	User.find(Evaluate.find(@rating.evaluate_id).ratee_id).update_attribute :score, new_score
-	User.find(Evaluate.find(@rating.evaluate_id).ratee_id).update_attribute :commented_num, new_num
+        current_score = User.find(Evaluate.find(@rating.evaluate_id).ratee_id).score
+        new_num = User.find(Evaluate.find(@rating.evaluate_id).ratee_id).commented_num + 1
+        new_score = current_score.nil? ? @rating.score : (current_score+@rating.score)/new_num
+        User.find(Evaluate.find(@rating.evaluate_id).ratee_id).update_attribute :score, new_score
+        User.find(Evaluate.find(@rating.evaluate_id).ratee_id).update_attribute :commented_num, new_num
+        Evaluate.find(@rating.evaluate_id).update_attribute :attempt, true
       else
         render 'new'
       end
