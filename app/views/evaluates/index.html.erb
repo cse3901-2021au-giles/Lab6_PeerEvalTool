@@ -8,6 +8,7 @@
     <tr>
       <th>Group</th>
       <th>Group Member</th>
+      <th>Date</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -18,10 +19,14 @@
         <tr>
           <td><%= Group.find(e.group_id).gname %></td>
           <td><%= User.find(e.ratee_id).Fname %> <%= User.find(e.ratee_id).Lname %></td>
-          <td><%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary", id: "btn" %>
+          <td><%= e.created_at.strftime("%m-%d-%Y") %></td>
+          <td>
               <% if current_user.try(:admin?) %>
-                <%= link_to 'Destroy', e, method: :delete, id: "btn",data: { confirm: 'Are you sure?' } %><br> </td>
+                <%= link_to 'Destroy', e, method: :delete, id: "btn",data: { confirm: 'Are you sure?' } %>
+              <% else %>
+                <%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary", id: "btn" %>
               <% end %>
+            <br></td>
         </tr>
 
       <% end %>
