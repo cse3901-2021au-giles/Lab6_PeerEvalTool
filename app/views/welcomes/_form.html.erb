@@ -14,8 +14,10 @@
 
   <% @members.each_with_index do |member, n|  %>
     <% @members.each_with_index do |member, m| %>
-      <% @eval = Evaluate.new(:group_id => Group.find(params[:group_id]).id, :user_id => @members[n].id, :ratee_id => @members[m].id, :attempt => false) %>
-      <% @eval.save %>
+        <% if @members[n].id != @members[m].id %>
+          <% @eval = Evaluate.new(:group_id => params[:group_id], :user_id => @members[n].id, :ratee_id => @members[m].id, :attempt => false) %>
+          <% @eval.save %>
+        <% end %>
     <% end %>
   <% end %>
 
