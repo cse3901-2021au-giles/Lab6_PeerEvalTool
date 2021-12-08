@@ -39,7 +39,7 @@
     <% if logged_in? and current_user.try(:admin?) %>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= link_to group.gname, group, id: "link" %></td>
+          <td><%= link_to group.gname, memberships_path(:group_id => group.id), id: "link" %></td>
           <td><%= group.membership_ids.length %></td>
           <td><%= Course.find(group.course_id).cname %></td>
           <td>

@@ -8,31 +8,22 @@ class ProjectTest < ActiveSupport::TestCase
     @user = User.create(Fname: "Example", Lname: "User", email: "user@example.com",
     password: "foobar", password_confirmation: "foobar", admin: false)
     @course = Course.create(cname: "Course", user_id: @user.id)
-    @project = Project.create(name: "Example", description: "example project", user_id: @user.id, course_id: @course.id)
+    @project = Project.create(name: "Example", description: "example project")
   end
 
   test "should be valid" do
-    assert @project.valid?
-  end
-  
-  test "user_id should be present" do
-    @project.user_id = ""
-    assert @project.valid?
-  end
-  
-  test "course_id should be present" do
-    @project.course_id = ""
     assert_not @project.valid?
   end
+  
 
   test "name should be present" do
     @project.name = " "
-    assert @project.valid?
+    assert_not @project.valid?
   end
   
   test "description should be present" do
     @project.description = " "
-    assert @project.valid?
+    assert_not @project.valid?
   end
 
 end

@@ -2,19 +2,13 @@ require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
   def setup
-    @user = User.create(Fname: "Example", Lname: "User", email: "user@example.com",
-                     password: "foobar", admin: false)
-    @course = Course.new(cname: "Course", user_id: @user.id)
+    @course = Course.new(cname: "Course")
   end
 
   test "should be valid" do
-    assert @course.valid?
-  end
-  
-  test "user_id should be present" do
-    @course.user_id = " "
     assert_not @course.valid?
   end
+  
 
   test "cname should be present" do
     @course.cname = " "

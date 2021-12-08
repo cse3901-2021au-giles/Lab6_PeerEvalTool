@@ -1,4 +1,4 @@
-<%# allows user to see all projects they have, or admin to see all projects and the groups they are assigned to %>
+<%# allows user to see all projects they have, or admin to see all projects and the projects they are assigned to %>
 <br><br><br>
 <% if !current_user.try(:admin?) %>
 <h1>Projects</h1>
@@ -10,8 +10,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Number of projects</th>
-      <th>Class</th>
+      <th>Number of groups assigned to project</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -20,28 +19,34 @@
     <% @projects.each do |project| %>
       <% if logged_in? and !current_user.try(:admin?) %>
       	<% for i in 0...project.assignment_ids.length %>
-           <% if current_group.assignment_ids.include? project.assignment_ids[i] %>
+           <% if current_project.assignment_ids.include? project.assignment_ids[i] %>
       	      <tr>
                  <td><%= link_to project.name, project %></td>
 	               <td><%= project.assignment_ids.length %></td>
-                 <td><%= Course.find(project.course_id).cname %></td>
                  <td><%= link_to 'Show',project, :class=>"action" %>
-                 </td>
               </tr>
            <% end %>
         <% end %>
       <% end %>
     <% end %>
 
-    <% if current_user.try(:admin?) %>
+    <!-- If user signed in is admin and owner of project, show each project name, members, and link to detail of each project -->
+    <% if logged_in? and current_user.try(:admin?) %>
       <% @projects.each do |project| %>
         <tr>
-          <td><%= link_to project.name, project %></td>
+          <td><%= link_to project.name, project, id: "link" %></td>
           <td><%= project.assignment_ids.length %></td>
-          <td><%= Course.find(project.course_id).cname %></td>
+          <td>
+
+              <%= link_to 'Assign', new_assignment_path(:project_id => project.id), :class=>"action button", id: "btn"%>
+              <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure you want to delete ' + project.name + '?'}, :class=>"action", id: "btn"%></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
+
+<% if current_user.try(:admin?) %>
+  <br><%= link_to 'New Project', new_project_path, :class => "new" %>
+<% end %>
 
