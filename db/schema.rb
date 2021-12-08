@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_203716) do
+ActiveRecord::Schema.define(version: 2021_12_08_012546) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer "group_id"
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2021_12_07_203716) do
     t.integer "evaluate_id"
     t.integer "user_id"
     t.integer "group_id"
-    t.string "score_float"
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score"
   end
 
   create_table "users", force: :cascade do |t|
