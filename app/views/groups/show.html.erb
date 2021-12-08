@@ -16,12 +16,17 @@
 				<td>
 				<%= User.find(Membership.find(@group.membership_ids[i]).user_id).email %>
 				</td>
-
-				<% eval_score = User.find(Membership.find(@group.membership_ids[i]).user_id).score%> 
-				<% if eval_score < 4 %>
-					<td <%= "Class = bad_score"%>>
-				<% elsif eval_score > 7 %>
-					<td <%= "Class = good_score"%>>
+				
+				<% eval_score = User.find(Membership.find(@group.membership_ids[i]).user_id).score %>
+				<% if eval_score.nil? %>
+					<% eval_score = "N/A" %>
+					<td>
+				<% else %> 
+					<% if eval_score < 4 %>
+						<td <%= "Class = bad_score"%>>
+					<% elsif eval_score > 7 %>
+						<td <%= "Class = good_score"%>>
+					<% end %>
 				<% end %>
 				<%= eval_score %>
 				</td>

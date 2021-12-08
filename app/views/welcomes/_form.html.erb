@@ -1,5 +1,5 @@
 <%= form_with(model: welcome, local: true) do |form| %>
-  <h1>Evaluations created!</h1>
+  <br><br><br><h1>Evaluations created!</h1>
 
   <% @users = User.all.collect %>
   <% @members = [] %>
@@ -17,6 +17,6 @@
     <% @eval.save %>
   <% end %>
 
-  <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
-  <br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+  <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default", id:"link" %>
+  <%= link_to 'Back to Classes', courses_path, :class => "btn btn-default", id:"link" %>
 <% end %>

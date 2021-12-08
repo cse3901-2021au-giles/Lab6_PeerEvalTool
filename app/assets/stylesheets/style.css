@@ -462,3 +462,7 @@ table{
 .bad_score{
   color: #d71920;
 }
+
+td.left{
+  text-align: left;
+}

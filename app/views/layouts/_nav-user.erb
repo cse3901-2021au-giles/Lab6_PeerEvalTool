@@ -5,7 +5,7 @@
       <%= link_to 'Groups', groups_path%>
 	    <%= link_to 'Open Evaluations', evaluates_path%>
       <div class="user">
-        <a href="" id="username"><%= current_user.Fname %>  <%= current_user.score %></a>
+        <a href="" id="username"><%= current_user.Fname %>  <span id="s_score"><%= current_user.score %></span></a>
         <div class="options">
           <%= link_to 'Settings', edit_user_path(current_user.id) %>
           <%= link_to "Sign out", logout_path, method: :delete %>
