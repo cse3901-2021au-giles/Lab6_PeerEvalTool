@@ -6,5 +6,4 @@ class Membership < ApplicationRecord
 	has_many :groups, :through => :memberships
 	has_many :courses
 	has_many :evaluates
-
 end

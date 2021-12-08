@@ -1,8 +1,9 @@
 <%# Option for header links based on the user and if they're signed in %>
   <nav>
     <div class="links">
-      <%= link_to 'Groups', groups_path %>
-	<%= link_to 'Open Evaluations', evaluates_path %>
+    <%= link_to "HOR", '#', id: "logo"%>
+      <%= link_to 'Groups', groups_path%>
+	    <%= link_to 'Open Evaluations', evaluates_path%>
       <div class="user">
         <a href="" id="username"><%= current_user.email %> - <%= current_user.score %></a>
         <div class="options">

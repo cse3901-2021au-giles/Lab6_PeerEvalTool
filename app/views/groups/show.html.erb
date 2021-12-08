@@ -3,7 +3,7 @@
 <% if @group.membership_ids.length == 0 %>	
     <%= "There are currently no members in this group" %>	
 <% else %>	
-<table><thead><tr><td>User</td><td>Email</td><td>Score</td></tr></thead><tbody>
+<table><thead><tr class = header><td>User</td><td>Email</td><td>Score</td></tr></thead><tbody>
 <% for i in 0...@group.membership_ids.length %>
 	<tr><td>
 	<%= User.find(Membership.find(@group.membership_ids[i]).user_id).Fname %> <%= User.find(Membership.find(@group.membership_ids[i]).user_id).Lname %>
@@ -18,4 +18,4 @@
 <% end %>
 </tbody></table>
 <% end %>
-    <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
+    <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default", id: "link"%>

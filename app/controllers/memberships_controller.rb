@@ -79,6 +79,6 @@ class MembershipsController < ApplicationController
     end
 
     def membership_params
-      params.require(:membership).permit(:user_id, :group_id, :q1, :q2, :q3, :q4)
+      params.require(:membership).permit(:user_id, :group_id)
     end
 end
